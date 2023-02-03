@@ -1,0 +1,19 @@
+.App {
+    display: flex;
+}
+
+main {
+    margin-left: 60px;
+    width: 100%;
+}
+
+@media (max-width: 800px) {
+    .App {
+        display: block;
+    }
+
+    main {
+        margin-left: 0px;
+        margin-bottom: 75px;
+    }
+}

@@ -1,0 +1,165 @@
+.drawings {
+    margin-top: 106px;
+    margin-bottom: 20px;
+    padding: 0px 30px 0px 30px;
+    text-align: center;
+
+    &__head {
+        font-size: 31px;
+
+        &-beneath {
+            margin-top: 15px;
+            font-size: 17px;
+        }
+    }
+
+    &__disciplines {
+        margin-top: 65px;
+
+        ul {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+
+            li {
+                padding: 12px 20px;
+                font-size: 11px;
+                background-color: #E6E6E6;
+                border-radius: 30px;
+                transition: .4s;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #393939;
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+
+    &__instruction {
+        margin-top: 27px;
+        margin-left: 30px;
+        display: flex;
+        font-size: 15px;
+        line-height: 30px;
+        gap: 15px;
+        cursor: pointer;
+
+        img {
+            width: 30px;
+        }
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__solutions {
+        margin-top: 35px;
+
+        &-single {
+            margin-bottom: 20px;
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+            // flex-wrap: wrap;
+            gap: 15px;
+            border: solid thin #3D3D3D;
+            border-radius: 30px;
+
+            &-left {
+                margin: auto;
+                text-align: left;
+                width: 40%;
+                
+                div {
+                    margin-top: 20px;
+                    display: flex;
+                    align-items: flex-end;
+                    gap: 15px;
+
+                    &:hover {
+                        text-decoration: underline;
+                        cursor: pointer;
+                    }
+
+                    p {
+                        font-size: 19px;
+                    }
+                }
+
+                p {
+                    font-size: 30px;
+                }
+
+                img {
+                    width: 60px;
+                }
+
+            }
+
+            &-right {
+                width: 60%;
+                height: auto;
+            }
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .drawings {
+        margin-top: 50px;
+        padding: 0px 20px 0px 20px;
+    
+        &__head {
+            font-size: 25px;
+    
+            &-beneath {
+                margin-top: 15px;
+                font-size: 15px;
+            }
+        }
+
+        &__disciplines {
+            margin-top: 45px;
+        }
+    }
+}
+
+@media (max-width: 620px) {
+    .drawings {
+        &__solutions {
+            margin-top: 35px;
+    
+            &-single {
+                margin-bottom: 20px;
+                padding: 25px;
+                gap: 15px;
+    
+                &-left {
+                    width: 40%;
+                    
+                    div {
+                        margin-top: 15px;
+                        gap: 10px;
+    
+                        p {
+                            font-size: 12px;
+                        }
+                    }
+    
+                    p {
+                        font-size: 20px;
+                    }
+    
+                    img {
+                        width: 35px;
+                    }
+    
+                }
+            }
+        }
+    }
+}
