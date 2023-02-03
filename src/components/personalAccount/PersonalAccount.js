@@ -140,20 +140,6 @@ const PersonalAccount = ({onChangeLoginStatus}) => {
         };
     }, [modalRef]);
 
-    // useEffect(() => {
-    //     const handleClickOutsideEdit = (event) => {
-    //         if (editProfileRef.current && !editProfileRef.current.contains(event.target)) {
-    //             setIsEditProfileOpen(false);
-    //         }
-    //     };
-
-    //     document.addEventListener("click", handleClickOutsideEdit);
-
-    //     return () => {
-    //         document.removeEventListener("click", handleClickOutsideEdit);
-    //     };
-    // }, [editProfileRef]);
-
     const notificationContent = notificationData.map((item, i) => {
         return (
             <div key={i} className="account__weather-wrapper-notification-single">

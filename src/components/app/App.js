@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import { lazy, Suspense } from "react";
-import { BrowserRouter as Router, Route, Routes, MemoryRouter, redirect, useNavigate, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 
 import './app.scss';
 
