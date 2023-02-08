@@ -4,7 +4,6 @@ aside {
     height: 100%;
     background-color: #3D3D3D;
     z-index: 1;
-    
     user-select: none;
 
     .aside {
@@ -47,7 +46,6 @@ aside {
     position: fixed;
     bottom: 20px;
     right: 40px;
-
     width: 60px;
     height: 60px;
     background-color: #ffffff;
@@ -83,7 +81,6 @@ aside {
         }
 
         .aside {
-            
             &__button {
                 text-align: center;
                 margin-top: 0;
@@ -118,6 +115,7 @@ aside {
 @media (max-width: 620px) {
     aside {
         height: 60px;
+        
         ul {
             gap: 15px;
         }

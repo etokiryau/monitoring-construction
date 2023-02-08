@@ -13,9 +13,6 @@ const Building = () => {
     const taskModalRef = useRef(null);
     const windowRef = useRef(window);
 
-    const urn = 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6cHJvamVjdF9hX2J5L3Byb2plY3RfYV9wcy56aXA';
-    const apiKey = 'tSWiGLZVyUbMm6phm8wDBkb3dxjNFkRvbCziZvYLmADMdmWd';
-
     const toggleTaskModal = () => {
         setIsTaskModalOpen(!isTaskModalOpen)
     }
@@ -65,8 +62,6 @@ const Building = () => {
                   onMouseDown={handleMouseDown}>
                 <TaskCard toggleTaskModal={toggleTaskModal}/>
             </div>
-            
-            {/* <AutodeskPlatformService urn={urn} apiKey={apiKey}/> */}
         </div> 
     )
 }

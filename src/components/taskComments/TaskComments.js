@@ -29,10 +29,8 @@ const TaskComment = () => {
         return commentContent;
     }
     
-    const commentContent = 
-        renderCommentContent(commentList);
+    const commentContent = renderCommentContent(commentList);
     
-
     return (
         <div className="comments">
             <div className="comments__list" style={{maxHeight: windowHeight - 250}}>

@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 
-import './errorMessage.scss';
+import './page404.scss';
 
 import img from './error.png'
 
-const ErrorMessage = () => {
+const Page404 = () => {
     return (
         <div className='container_error'>
             <img style={{display: 'block', width: '120px', height: '120px', objectFit: 'contain', margin: '0 auto'}} src={img} alt="error" />
@@ -14,4 +14,4 @@ const ErrorMessage = () => {
     )
 }
 
-export default ErrorMessage;
+export default Page404;

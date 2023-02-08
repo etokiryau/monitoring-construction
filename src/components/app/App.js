@@ -11,7 +11,7 @@ const Documentation = lazy(() => import("../pages/Documentation"));
 const Building = lazy(() => import("../pages/building/Building"));
 const SmartHouse = lazy(() => import("../pages/SmartHouse"));
 const SupportPage = lazy(() => import("../pages/SupportPage"));
-const ErrorMessage = lazy(() => import("../errorMessage/ErrorMessage"));
+const Page404 = lazy(() => import("../pages/page404/Page404"));
 
 
 function App() {
@@ -34,13 +34,13 @@ function App() {
                 <Route exact path='/building' element={<Building/>}/>
                 <Route exact path='/smarthouse' element={<SmartHouse/>}/>
                 <Route exact path='/support' element={<SupportPage/>}/>
-                <Route path='*' element={<ErrorMessage/>}/>
+                <Route path='*' element={<Page404/>}/>
               </Routes>
             </Suspense>
           </main>
         </div>
       : <LoginPage onChangeLoginStatus={onChangeLoginStatus}/>}
-  </Router>
+    </Router>
   );
 }
 

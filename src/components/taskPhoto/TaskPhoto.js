@@ -7,7 +7,6 @@ import './taskPhoto.scss';
 
 const TaskPhoto = () => {
 
-
     return (
         <div className="photo">
             <div className="photo__part">
