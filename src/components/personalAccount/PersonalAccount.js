@@ -181,7 +181,7 @@ const PersonalAccount = ({onChangeLoginStatus}) => {
                 </div>
             </div>
 
-            <div  style={{display: isEditProfileOpen ? 'flex' : 'none'}} className="account__editprofile-wrapper">
+            <div style={{display: isEditProfileOpen ? 'flex' : 'none'}} className="account__editprofile-wrapper">
                 <div ref={editProfileRef} className="account__editprofile">
                     <img onClick={toggleEditProfile} className="account__editprofile-closebtn" src={close} alt="close" />
                     <h2 className="account__editprofile-head">Profile</h2>
@@ -211,8 +211,6 @@ const PersonalAccount = ({onChangeLoginStatus}) => {
 
 
             <div className="account__wrapper">
-                
-
                 <p className="account__head">Your personal account</p>
                 <p className="account__project-code">SKU: 100.951.116</p>
                 <div className="account__weather">
@@ -307,12 +305,9 @@ const PersonalAccount = ({onChangeLoginStatus}) => {
                                         <circle cx="50%" cy="50%" r="60"
                                             strokeDashoffset={windowWidth > 800 ? 'calc(377 - (377 * 35) / 100)' : 'calc(251 - (251 * 35) / 100)'}/>
                                     </svg>
-                                    
                                     <p name="progress">35%</p>
                                 </div>
-                                
                             </div>
-                            
                         </div>
                         <div className="account__statistics-plan-fact">
                             <p name="head">PLAN/FACT</p>
@@ -325,10 +320,10 @@ const PersonalAccount = ({onChangeLoginStatus}) => {
             </div>
 
             <div className="account__statistics-renders">
-                    <img src={render1} alt="render" />
-                    <img src={render2} alt="render" />
-                    <img src={render3} alt="render" />
-                </div>
+                <img src={render1} alt="render" />
+                <img src={render2} alt="render" />
+                <img src={render3} alt="render" />
+            </div>
         </div>
     )
 }

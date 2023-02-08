@@ -5,10 +5,10 @@ import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import './app.scss';
 
 import Sidebar from '../sidebar/Sidebar';
-import LoginPage from '../loginPage/LoginPage';
+import LoginPage from '../pages/loginPage/LoginPage';
 const Project = lazy(() => import("../pages/Project"));
 const Documentation = lazy(() => import("../pages/Documentation"));
-const Building = lazy(() => import("../pages/Building"));
+const Building = lazy(() => import("../pages/building/Building"));
 const SmartHouse = lazy(() => import("../pages/SmartHouse"));
 const SupportPage = lazy(() => import("../pages/SupportPage"));
 const ErrorMessage = lazy(() => import("../errorMessage/ErrorMessage"));

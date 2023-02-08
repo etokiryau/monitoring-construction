@@ -1,6 +1,5 @@
 .monitoring {
-    margin-top: 105px;
-    padding: 0px 30px 0px 30px;
+    padding: 105px 30px 0px 30px;
     text-align: center;
 
     &__head {
@@ -204,7 +203,7 @@
 
 @media (max-width: 800px) {
     .monitoring {
-        margin-top: 50px;
+        padding-top: 50px;
 
         &__head {
             font-size: 25px;
@@ -281,7 +280,7 @@
 
 @media (max-width: 620px) {
     .monitoring {
-        padding: 0px 20px 0px 20px;
+        padding: 50px 20px 0px 20px;
 
         &__schedule {
             font-size: 16px;

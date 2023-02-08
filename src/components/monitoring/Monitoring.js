@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 
 import './monitoring.scss';
 
-const Monitoring = () => {
+const Monitoring = ({toggleTaskModal}) => {
 
     const [visibleScheduleData, setscheduleData] = useState([]);
     const [term, setTerm] = useState('');
@@ -128,7 +128,9 @@ const Monitoring = () => {
     const renderScheduleContent = (data) => {
         const taskList = data.map((item, i) => {
             return (
-                <p key={i} className="monitoring__schedule-task-name">{item.taskName}</p>
+                // <Link to={`/taskcard/${item.taskName.replace(' ', '')}`}>
+                    <p onClick={toggleTaskModal} key={i} className="monitoring__schedule-task-name">{item.taskName}</p>
+                // </Link>
             )
         });
 
@@ -141,10 +143,12 @@ const Monitoring = () => {
             //     adoptedWidth = `${item.width * (41 / 62)}px`;
             // }
 
-            return (
+            return (  
                 <div key={i} className="monitoring__schedule-task-duration">
-                    <div className="monitoring__schedule-task-duration-single" style={{marginLeft: item.marginLeft, width: adoptedWidth}}>{item.duration}</div>
-                </div>
+                    {/* <Link to={`/taskcard/${item.taskName.replace(' ', '')}`}> */}
+                        <div onClick={toggleTaskModal} className="monitoring__schedule-task-duration-single" style={{marginLeft: item.marginLeft, width: adoptedWidth}}>{item.duration}</div>
+                    {/* </Link> */}
+                </div> 
             )
         });
 
