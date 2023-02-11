@@ -3,7 +3,7 @@
 const SmartHouse = () => {
     return (
         <div style={{
-            marginTop: '106px',
+            marginTop: '105px',
             fontSize: '31px',
             textAlign: 'center',
         }}>

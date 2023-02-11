@@ -21,6 +21,8 @@ const TaskCard = ({toggleTaskModal}) => {
                 return <TaskPhoto />
             case 'comments':
                 return <TaskComments />
+            default:
+                new Error('Such content does not exist')
         }
     }
     

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 
 import './monitoring.scss';
 
@@ -128,9 +128,7 @@ const Monitoring = ({toggleTaskModal}) => {
     const renderScheduleContent = (data) => {
         const taskList = data.map((item, i) => {
             return (
-                // <Link to={`/taskcard/${item.taskName.replace(' ', '')}`}>
-                    <p onClick={toggleTaskModal} key={i} className="monitoring__schedule-task-name">{item.taskName}</p>
-                // </Link>
+                <p onClick={toggleTaskModal} key={i} className="monitoring__schedule-task-name">{item.taskName}</p>
             )
         });
 
@@ -145,9 +143,7 @@ const Monitoring = ({toggleTaskModal}) => {
 
             return (  
                 <div key={i} className="monitoring__schedule-task-duration">
-                    {/* <Link to={`/taskcard/${item.taskName.replace(' ', '')}`}> */}
-                        <div onClick={toggleTaskModal} className="monitoring__schedule-task-duration-single" style={{marginLeft: item.marginLeft, width: adoptedWidth}}>{item.duration}</div>
-                    {/* </Link> */}
+                    <div onClick={toggleTaskModal} className="monitoring__schedule-task-duration-single" style={{marginLeft: item.marginLeft, width: adoptedWidth}}>{item.duration}</div>
                 </div> 
             )
         });
@@ -166,9 +162,7 @@ const Monitoring = ({toggleTaskModal}) => {
         )
     };
 
-    const monthesContent = useMemo(() => {
-        return renderMonthesContent(monthes)
-    }, [monthes]);
+    const monthesContent = renderMonthesContent(monthes);
 
     const scheduleContent = useMemo(() => {
         return renderScheduleContent(visibleScheduleData);

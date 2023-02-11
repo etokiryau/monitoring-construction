@@ -15,7 +15,7 @@ const Sidebar = () => {
             <aside>
                 <ul>
                     <li className="aside__button">
-                        <NavLink end style={({isActive}) => ({color: isActive ? '#98fa84' : 'inherit'})} to={`/`}>
+                        <NavLink end style={({isActive}) => ({color: isActive ? '#98fa84' : 'inherit'})} to={`/project`}>
                             <img src={project} alt="project" />
                             Project
                         </NavLink></li>
@@ -43,10 +43,8 @@ const Sidebar = () => {
                 </ul>
             </aside>
 
-            <Link end to={`/support`}>
-                <div className="support-btn">
-                    <img src={suportAbs} alt="support-button" />
-                </div>
+            <Link end to={`/support`} className="support-btn">
+                <img src={suportAbs} alt="support-button" />
             </Link>
         </>
     )

@@ -1,32 +1,71 @@
-import { Formik, Field, Form } from 'formik';
+import { useNavigate, useLocation, Link} from "react-router-dom";
+import { Formik, Field, Form, ErrorMessage } from 'formik';
+
 import './loginPage.scss';
 
-const LoginPage = ({onChangeLoginStatus}) => {
+const LoginPage = ({useAuth}) => {
+
+    let navigate = useNavigate();
+    let location = useLocation();
+    
+    let auth = useAuth();
+
+    let from = location.state?.from?.pathname || "/project";
+
+    const handleSubmit = (data) => {
+        let userInfo = data;
+
+        auth.signin(userInfo, () => {
+            navigate(from, { replace: true });;
+        });
+    }
 
     return (
         <div className="login">
             <div className="login__wrapper">
+                <p name="back">
+                    <Link to="/">Back to main page</Link>
+                </p>
                 <h1>Log in</h1>
                 <Formik
                     initialValues={{
                         email: '',
                         password: '',
                     }}
-
-                    onSubmit={onChangeLoginStatus}
+                    validate={values => {
+                        const errors = {};
+                        if (!values.email) {
+                          errors.email = 'Email is required';
+                        }
+                        if (!values.password) {
+                          errors.password = 'Password is required';
+                        }
+                        return errors;
+                      }}
+                    onSubmit={handleSubmit}
                 >
                     <Form className="login__form">
-                        <label className="login__form-label" htmlFor="email">Email</label>
-                        <Field className="login__form-input" type="email" id="email" name="email" placeholder="janedoe@gmail.com" />
-
-                        <label className="login__form-label" htmlFor="password">Password</label>
-                        <Field
-                            className="login__form-input"
-                            id="password"
-                            name="password"
-                            placeholder="enter your password"
-                            type="password"
-                        />
+                        <div className="login__form-single"> 
+                            <label htmlFor="email">Email</label>
+                            <Field 
+                                className="login__form-input" 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                placeholder="janedoe@gmail.com" />
+                            <ErrorMessage name="email" component="div" className="login__form-input-error"/>
+                        </div>
+                        <div className="login__form-single">
+                            <label htmlFor="password">Password</label>
+                            <Field
+                                className="login__form-input"
+                                id="password"
+                                name="password"
+                                placeholder="enter your password"
+                                type="password"
+                            />
+                            <ErrorMessage name="password" component="div" className="login__form-input-error"/>
+                        </div>
                         <div className="login__form-button">
                             <button type="submit">Sign in</button>
                         </div>
@@ -40,5 +79,27 @@ const LoginPage = ({onChangeLoginStatus}) => {
         </div>
     )
 }
+
+// function AuthStatus() {
+//     let auth = useAuth();
+//     let navigate = useNavigate();
+  
+//     if (!auth.user) {
+//       return <p>You are not logged in.</p>;
+//     }
+  
+//     return (
+//       <p>
+//         Welcome {auth.user}!{" "}
+//         <button
+//           onClick={() => {
+//             auth.signout(() => navigate("/"));
+//           }}
+//         >
+//           Sign out
+//         </button>
+//       </p>
+//     );
+//   }
 
 export default LoginPage;

@@ -1,9 +1,8 @@
 .indicators {
     text-align: center;
-    padding: 0px 30px 0px 30px;
+    padding: 105px 30px 0px 30px;
 
     &__head {
-        margin-top: 105px;
         font-size: 31px;
     }
 
@@ -82,10 +81,9 @@
 
 @media (max-width: 800px) {
     .indicators {
-        padding: 0px 20px 0px 20px;
+        padding: 60px 20px 0px 20px;
     
         &__head {
-            margin-top: 50px;
             font-size: 25px;
         }
 
@@ -95,7 +93,7 @@
 
         &__wrapper {
             margin-top: 45px;
-            padding: 30px 40px;
+            padding: 20px 20px;
             gap: 30px;
 
             div {
@@ -131,6 +129,24 @@
                 margin-top: 13px;
                 font-size: 17px;
             }
+        }
+    }
+}
+
+@media (max-width: 620px) {
+    .indicators {
+        padding: 60px 20px 0px 20px;
+    
+        &__head {
+            font-size: 25px;
+        }
+
+        &__external-spaces {
+            width: 75%;
+        }
+
+        &__wrapper {
+            flex-direction: column;
         }
     }
 }

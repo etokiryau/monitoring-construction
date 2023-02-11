@@ -9,7 +9,7 @@ const Page404 = () => {
         <div className='container_error'>
             <img style={{display: 'block', width: '120px', height: '120px', objectFit: 'contain', margin: '0 auto'}} src={img} alt="error" />
             <h1 className='error'>We could not find the page on our server</h1>
-            <h2>Please redirect to the <Link end to={`/`}>Project page</Link></h2>
+            <h2>Please redirect to the <Link end to={`/`}>Main page</Link> or <Link end to={`/project`}>Project page</Link></h2>
         </div>
     )
 }

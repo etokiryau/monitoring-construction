@@ -1,5 +1,5 @@
-import { useState, useMemo, useRef } from 'react';
-import { Formik, Form, Field, ErrorMessage as FormikErrorMessage } from 'formik';
+import { useState, useRef } from 'react';
+import { Formik, Form, Field } from 'formik';
 
 import chat from './img/chat.svg';
 
@@ -42,8 +42,10 @@ const TaskComment = () => {
                         comment: ''
                     }}
                     onSubmit = { ({comment}, {resetForm}) => {
-                        if (comment.length) updateCommentList(comment);
-                        resetForm({comment: ''});
+                        if (comment.length) {
+                            updateCommentList(comment);
+                            resetForm({comment: ''});
+                        }
                     }}
                 >
                     <Form>
@@ -67,5 +69,3 @@ const TaskComment = () => {
 }
 
 export default TaskComment;
-
-console.log(new Date().toLocaleDateString())

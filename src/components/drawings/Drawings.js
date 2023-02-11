@@ -30,6 +30,8 @@ const Drawings = () => {
             case 'power':
                 offsetY = powerRef.current.offsetTop;
                 break;
+            default:
+                break;
         }
         window.scrollTo({
             top: offsetY - window.innerHeight / 2 + 100,

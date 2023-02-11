@@ -33,12 +33,10 @@
             justify-content: center;
             gap: 40px;
             
-
             li {
                 color: #000000;
                 min-width: 80px;
                 cursor: pointer;
-                transition: 0.15s ease-in-out;
                 letter-spacing: .3px;
             }
         }
