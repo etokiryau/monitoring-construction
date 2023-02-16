@@ -101,8 +101,13 @@
             }
 
             &-right {
+                position: relative;
                 width: 60%;
-                height: auto;
+                height: 300px;
+
+                .viewer-container {
+                    height: 100%;
+                }
             }
         }
     }
@@ -125,6 +130,30 @@
         &__disciplines {
             margin-top: 45px;
         }
+
+        &__solutions {   
+            &-single {
+                flex-direction: column;
+
+                &-left {
+                    margin: auto;
+                    text-align: center;
+                    width: 100%;
+
+                    div {
+                        justify-content: center;
+
+                        img {
+                            width: 40px;
+                        }
+                    }
+                }
+
+                &-right {
+                    width: 100%;
+                }
+            }
+        }
     }
 }
 
@@ -139,7 +168,7 @@
                 gap: 15px;
     
                 &-left {
-                    width: 40%;
+                    
                     
                     div {
                         margin-top: 15px;
@@ -148,15 +177,17 @@
                         p {
                             font-size: 12px;
                         }
+
+                        img {
+                            width: 25px;
+                        }
                     }
     
                     p {
                         font-size: 20px;
                     }
     
-                    img {
-                        width: 35px;
-                    }
+                    
     
                 }
             }

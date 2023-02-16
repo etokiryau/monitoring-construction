@@ -1,4 +1,6 @@
 import { useRef } from 'react';
+
+// import AutodeskPlatformService from '../../services/AutodeskPlatformService';
 import book from './img/book.png';
 import pdf from './img/pdf.png';
 
@@ -11,6 +13,9 @@ const Drawings = () => {
     const waterRef = useRef(null);
     const heatingRef = useRef(null);
     const powerRef = useRef(null);
+    const viewerContainer = useRef(null);
+
+    const modelUrn = 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6cHJvamVjdF9hX2J5L3Byb2plY3RfYV9wcy56aXA';
 
     const handleFocus = (solution) => {
         let offsetY;
@@ -68,7 +73,9 @@ const Drawings = () => {
                         </div>
                     </div>
                     <div className="drawings__solutions-single-right">
-                        Autodesk platform services
+                        <div className='viewer-container' ref={viewerContainer}>
+                            {/* <AutodeskPlatformService viewerContainer={viewerContainer} modelUrn={modelUrn}/> */}
+                        </div>
                     </div>
                 </div>
 

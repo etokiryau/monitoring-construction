@@ -5,7 +5,7 @@ export const Auth = () => {
 
     signin(callback) {
       fakeAuthProvider.isAuthenticated = true;
-      setTimeout(callback, 100); // fake async
+      setTimeout(callback, 100); 
     },
     
     signout(callback) {
@@ -14,6 +14,5 @@ export const Auth = () => {
     },
   };
 
-   return { fakeAuthProvider };
+  return { fakeAuthProvider };
 }
- 

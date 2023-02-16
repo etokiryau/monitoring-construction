@@ -1,16 +1,18 @@
-import { cloneElement } from "react";
+import { useContext } from "react";
 import { useLocation, Navigate } from "react-router-dom";
 
-function RequireAuth({ children, useAuth }) {
+import { AuthContext } from "./AuthContext";
 
-  let auth = useAuth();
+function RequireAuth({ children }) {
+
+  let {user} = useContext(AuthContext);
   let location = useLocation();
   
-  if (!auth.user) {
+  if (!user) {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
-  return cloneElement(children, { useAuth });
+  return children;
 }
 
 export default RequireAuth;

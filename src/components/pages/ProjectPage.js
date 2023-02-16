@@ -2,10 +2,10 @@ import PersonalAccount from "../personalAccount/PersonalAccount";
 import ProjectStatistics from "../projectStatistics/ProjectStatistics";
 import ProjectWeatherCondition from "../projectWeatherCondition/WeatherCondition";
 
-const Project = ({AuthContext}) => {
+const Project = () => {
     return (
         <div className="account">
-            <PersonalAccount AuthContext={AuthContext}/>
+            <PersonalAccount />
             <ProjectWeatherCondition/>
             <ProjectStatistics/>
         </div>

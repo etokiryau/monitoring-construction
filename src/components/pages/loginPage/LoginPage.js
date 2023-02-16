@@ -1,21 +1,24 @@
+import { useContext } from "react";
 import { useNavigate, useLocation, Link} from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 
+import { AuthContext } from "../../auth/AuthContext";
+
 import './loginPage.scss';
 
-const LoginPage = ({useAuth}) => {
+const LoginPage = () => {
 
     let navigate = useNavigate();
     let location = useLocation();
     
-    let auth = useAuth();
+    const { signin } = useContext(AuthContext)
 
     let from = location.state?.from?.pathname || "/project";
 
     const handleSubmit = (data) => {
         let userInfo = data;
 
-        auth.signin(userInfo, () => {
+        signin(userInfo, () => {
             navigate(from, { replace: true });;
         });
     }

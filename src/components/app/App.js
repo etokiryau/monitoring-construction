@@ -1,8 +1,8 @@
-import { createContext, useContext } from "react";
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import Spinner from "../spinner/Spinner";
+import { AuthContext } from "../auth/AuthContext";
 import AuthProvider from "../auth/AuthProvider";
 import RequireAuth from "../auth/RequireAuth";
 
@@ -20,47 +20,41 @@ const Page404 = lazy(() => import("../pages/page404/Page404"));
 
 function App() {
 
-  let AuthContext = createContext(null);
-
-  function useAuth() {
-    return useContext(AuthContext);
-  } 
-
   return (
     <AuthProvider AuthContext={AuthContext}>
       <Suspense fallback={<Spinner/>}>
         <Routes>
             <Route path="/" element={<MainPage />} />
-            <Route path="/login" element={<LoginPage useAuth={useAuth}/>} />
+            <Route path="/login" element={<LoginPage />} />
             <Route exact path='*' element={<Page404 />}/>
-            <Route element={<AppPage useAuth={useAuth}/>}>
+            <Route element={<AppPage />}>
 
               <Route exact path='/project' element={
-                <RequireAuth useAuth={useAuth}>
-                  <ProjectPage AuthContext={AuthContext}/>
+                <RequireAuth >
+                  <ProjectPage />
                 </RequireAuth>
               }/>
 
               <Route exact path='/documentation' element={
-                <RequireAuth useAuth={useAuth}>
+                <RequireAuth >
                   <DocumentationPage />
                 </RequireAuth>
               }/>
 
               <Route exact path='/building' element={
-                <RequireAuth useAuth={useAuth}>
+                <RequireAuth >
                   <BuildingPage />
                 </RequireAuth>
               }/>
 
               <Route exact path='/smarthouse' element={
-                <RequireAuth useAuth={useAuth}>
+                <RequireAuth >
                   <SmartHousePage />
                 </RequireAuth>
               }/>
 
               <Route exact path='/support' element={
-                <RequireAuth useAuth={useAuth}>
+                <RequireAuth >
                   <SupportPage />
                 </RequireAuth>
               }/>

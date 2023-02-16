@@ -1,11 +1,13 @@
+import { useMemo, useRef } from 'react';
+
 import calendarStart from './img/calendarStart.svg';
 import calendarEnd from './img/calendarEnd.svg';
 import alarm from './img/alarm.svg';
 
 import './taskOverview.scss';
 
-const TaskOverview = () => {
-
+const TaskOverview = ({forge}) => {
+    
     return (
         <div className="overview">
             <div className="overview__info">
@@ -42,7 +44,9 @@ const TaskOverview = () => {
             </div>
 
             <div className="overview__model">
-                Autodesk Platform Services
+                <div style={{width: '100%', height: '100px'}} >
+                    {/* {forge} */}
+                </div>
             </div>
         </div>
     )

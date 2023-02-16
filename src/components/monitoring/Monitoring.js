@@ -54,6 +54,18 @@ const Monitoring = ({toggleTaskModal}) => {
                 duration: '15 FEB - 12 MAY',
                 marginLeft: '90px',
                 width: '150px'
+            },
+            {
+                taskName: 'TASK 7',
+                duration: '20 MAR - 22 JUN',
+                marginLeft: '130px',
+                width: '190px'
+            },
+            {
+                taskName: 'TASK 8',
+                duration: '13 APR - 15 JUL',
+                marginLeft: '180px',
+                width: '190px'
             }
         ]
     }

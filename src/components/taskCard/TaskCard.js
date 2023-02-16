@@ -7,9 +7,8 @@ import TaskComments from '../taskComments/TaskComments';
 import './taskCard.scss';
 
 const TaskCard = ({toggleTaskModal}) => {
-
-    const [tab, setTab] = useState('overview');
     
+    const [tab, setTab] = useState('overview');
     const windowRef = useRef(window);
     let windowHeight = windowRef.current.innerHeight;
 
@@ -25,14 +24,14 @@ const TaskCard = ({toggleTaskModal}) => {
                 new Error('Such content does not exist')
         }
     }
-    
+
     return (
         <div className='task-card'>
             <div className='task-card__wrapper'>
                 <div  className='task-card__wrapper-crossbtn'>
                     <svg onClick={toggleTaskModal} viewBox="0 0 100 100">
-                        <line x1="10" y1="10" x2="90" y2="90" stroke="black" stroke-width="10" />
-                        <line x1="90" y1="10" x2="10" y2="90" stroke="black" stroke-width="10" />
+                        <line x1="10" y1="10" x2="90" y2="90" stroke="black" strokeWidth="10" />
+                        <line x1="90" y1="10" x2="10" y2="90" stroke="black" strokeWidth="10" />
                     </svg>
                 </div>
                 <div className='task-card__navigation'>

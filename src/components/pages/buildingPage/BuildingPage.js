@@ -1,17 +1,20 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useMemo, useCallback } from 'react';
 
 import AutodeskPlatformService from '../../../services/AutodeskPlatformService';
 import Monitoring from '../../monitoring/Monitoring';
 import TaskCard from '../../taskCard/TaskCard';
 
-import './building.scss';
+import { Context } from '../../../utilis/Context';
 
+import './buildingPage.scss';
 
 const Building = () => {
     const [isTaskModalOpen, setIsTaskModalOpen] = useState(false);
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const taskModalRef = useRef(null);
     const windowRef = useRef(window);
+
+    const modelUrn = 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6cHJvamVjdF9hX2J5L3Byb2plY3RfYV9wcy56aXA';
 
     const toggleTaskModal = () => {
         setIsTaskModalOpen(!isTaskModalOpen)
@@ -49,20 +52,31 @@ const Building = () => {
         });
     };
 
+    // const forge = useCallback((viewerContainer) => {return <AutodeskPlatformService modelUrn={modelUrn} viewerContainer={viewerContainer}/>}, [viewerContainer])
+      const forge = useMemo(() => {return <AutodeskPlatformService modelUrn={modelUrn}/>}, [modelUrn])
     return (
+      <Context.Provider value={{forge}}>
         <div style={{position: 'relative'}}>
-            <Monitoring toggleTaskModal={toggleTaskModal}/>
+          <Monitoring toggleTaskModal={toggleTaskModal}/>
+          
+          <div ref={taskModalRef}
+                style={{display: isTaskModalOpen ? 'block' : 'none', 
+                        left: position.x,
+                        top: position.y, 
+                        position: 'absolute'}}
+                className="taskcard-wrapper"
+                onMouseDown={handleMouseDown}>
+              <TaskCard toggleTaskModal={toggleTaskModal} modelUrn={modelUrn} forge={forge}/>
+          </div>
+         
 
-            <div ref={taskModalRef}
-                  style={{display: isTaskModalOpen ? 'block' : 'none', 
-                          left: position.x,
-                          top: position.y, 
-                          position: 'absolute'}}
-                  className="taskcard-wrapper"
-                  onMouseDown={handleMouseDown}>
-                <TaskCard toggleTaskModal={toggleTaskModal}/>
+          <div className='viewer'>
+            <div className='viewer-container' >
+              {forge}
             </div>
+          </div>
         </div> 
+        </Context.Provider>
     )
 }
 
