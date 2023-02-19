@@ -14,7 +14,7 @@ const Monitoring = ({toggleTaskModal}) => {
     const monthesRef = useRef(null);
     const windowRef = useRef(window);
 
-    const windowWidth = windowRef.current.innerWidth;
+    let windowWidth = windowRef.current.innerWidth;
 
     const fetchedData = {
         monthes: ['JAN','FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC', 'JAN', 'FEB'],
@@ -174,7 +174,7 @@ const Monitoring = ({toggleTaskModal}) => {
         )
     };
 
-    const monthesContent = renderMonthesContent(monthes);
+    const monthesContent = useMemo(() => renderMonthesContent(monthes), [monthes]);
 
     const scheduleContent = useMemo(() => {
         return renderScheduleContent(visibleScheduleData);

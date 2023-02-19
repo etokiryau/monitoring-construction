@@ -49,6 +49,7 @@
             display: flex;
             justify-content: space-between;
             line-height: 30px;
+
             p {
                 font-size: 22px;
             }
@@ -75,6 +76,13 @@
             text-align: left;
             list-style: disc;
             font-size: 24px;
+            transition: all .2s ease-in-out;
+        
+            
+            li {
+                opacity: 0;
+                animation: appear .4s ease forwards;
+            }
         }
     }
 }
@@ -135,14 +143,18 @@
 
 @media (max-width: 620px) {
     .indicators {
-        padding: 60px 20px 0px 20px;
+        padding: 60px 10px 0px 10px;
+
+        &__external-wrapper {
+            width: 90%;
+        }
     
         &__head {
             font-size: 25px;
         }
 
         &__external-spaces {
-            width: 75%;
+            width: 90%;
         }
 
         &__wrapper {
@@ -150,3 +162,14 @@
         }
     }
 }
+
+@keyframes appear {
+    from {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+  }

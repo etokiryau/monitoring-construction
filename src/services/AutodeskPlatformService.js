@@ -20,7 +20,7 @@ const AutodeskPlatformService = ({ modelUrn }) => {
         const options = {
             env: 'AutodeskProduction', 
             api: 'derivativeV2',
-            locale: 'ru-RU',
+            locale: 'en-US',
             language: 'en',
             accessToken: accessToken,
         }

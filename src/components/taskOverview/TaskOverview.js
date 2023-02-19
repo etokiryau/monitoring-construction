@@ -1,4 +1,6 @@
-import { useMemo, useRef } from 'react';
+import { useMemo, useRef, useContext } from 'react';
+
+import { Context } from '../../utilis/Context';
 
 import calendarStart from './img/calendarStart.svg';
 import calendarEnd from './img/calendarEnd.svg';
@@ -6,7 +8,9 @@ import alarm from './img/alarm.svg';
 
 import './taskOverview.scss';
 
-const TaskOverview = ({forge}) => {
+const TaskOverview = () => {
+
+    const forge = useContext(Context);
     
     return (
         <div className="overview">

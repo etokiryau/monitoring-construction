@@ -14,7 +14,7 @@ const Building = () => {
     const taskModalRef = useRef(null);
     const windowRef = useRef(window);
 
-    const modelUrn = 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6cHJvamVjdF9hX2J5L3Byb2plY3RfYV9wcy56aXA';
+    const modelUrn = 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6dHN3aWdsenZ5dWJtbTZwaG04d2Ria2IzZHhqbmZrcnYtcHJvamVjdF9hL3Byb2plY3RfYV9mcmVlLm53ZA';
 
     const toggleTaskModal = () => {
         setIsTaskModalOpen(!isTaskModalOpen)
@@ -29,11 +29,12 @@ const Building = () => {
         const handleMouseMove = (event) => {
             let newX = event.clientX - initialX;
             let newY = event.clientY - initialY;
+            let rightModalShift = windowRef.current.innerWidth > 800 ? 60 : 0;
       
             if (newX < 0) {
               newX = 0;
             } else if (newX + taskModalRef.current.offsetWidth + taskModalRef.current.firstChild.clientWidth + 60 > windowRef.current.innerWidth) {
-              newX = windowRef.current.innerWidth - taskModalRef.current.offsetWidth - taskModalRef.current.firstChild.clientWidth - 60;
+              newX = windowRef.current.innerWidth - taskModalRef.current.offsetWidth - taskModalRef.current.firstChild.clientWidth - rightModalShift - 10;
             }
       
             if (newY < 0) {
@@ -55,7 +56,7 @@ const Building = () => {
     // const forge = useCallback((viewerContainer) => {return <AutodeskPlatformService modelUrn={modelUrn} viewerContainer={viewerContainer}/>}, [viewerContainer])
       const forge = useMemo(() => {return <AutodeskPlatformService modelUrn={modelUrn}/>}, [modelUrn])
     return (
-      <Context.Provider value={{forge}}>
+      <Context.Provider value={forge}>
         <div style={{position: 'relative'}}>
           <Monitoring toggleTaskModal={toggleTaskModal}/>
           
@@ -63,13 +64,12 @@ const Building = () => {
                 style={{display: isTaskModalOpen ? 'block' : 'none', 
                         left: position.x,
                         top: position.y, 
-                        position: 'absolute'}}
+                        }}
                 className="taskcard-wrapper"
                 onMouseDown={handleMouseDown}>
-              <TaskCard toggleTaskModal={toggleTaskModal} modelUrn={modelUrn} forge={forge}/>
+              <TaskCard toggleTaskModal={toggleTaskModal} modelUrn={modelUrn}/>
           </div>
          
-
           <div className='viewer'>
             <div className='viewer-container' >
               {forge}

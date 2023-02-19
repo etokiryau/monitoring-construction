@@ -1,4 +1,4 @@
-.account {
+.project {
     &__weather {
         margin-top: 60px;
         display: flex;
@@ -132,7 +132,7 @@
 }
 
 @media (max-width: 800px) {
-    .account {
+    .project {
         &__weather {
             &-wrapper {
                 &-notification {

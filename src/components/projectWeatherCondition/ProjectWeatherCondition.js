@@ -96,7 +96,7 @@ const ProjectWeatherCondition = () => {
 
     const notificationContent = notificationData.map((item, i) => {
         return (
-            <div key={i} className="account__weather-wrapper-notification-single">
+            <div key={i} className="project__weather-wrapper-notification-single">
                 <div>
                     <div name="number"></div>
                     <p>{item.number}</p>
@@ -109,23 +109,23 @@ const ProjectWeatherCondition = () => {
 
     return (
         
-        <div className="account__weather">
-        <div className="account__weather-wrapper-card">
+        <div className="project__weather">
+        <div className="project__weather-wrapper-card">
             <p name="head">Project Address</p>
             <GoogleMapService/>
             <p name="address">London Rd, Patcham, Brighton BN1 8YQ, United Kingdom</p>
         </div>
 
-        <div className="account__weather-wrapper-card">
+        <div className="project__weather-wrapper-card">
             <p name="head">Weather</p>
-            <div className="account__weather-forecast">
-                <div className="account__weather-forecast-current">
+            <div className="project__weather-forecast">
+                <div className="project__weather-forecast-current">
                     <p name="curTemp">20°</p>
                     <img src={cloud} alt="cloud" />
                 </div>
                 <p name="condition">Overcast</p>
-                <div className="account__weather-forecast-future">
-                    <div className="account__weather-forecast-future-single">
+                <div className="project__weather-forecast-future">
+                    <div className="project__weather-forecast-future-single">
                         <div>
                             <p>Wed</p>
                             <p>24°</p>
@@ -133,7 +133,7 @@ const ProjectWeatherCondition = () => {
                         <img src={rainCloud} alt="rainCloud" />
                     </div>
 
-                    <div className="account__weather-forecast-future-single">
+                    <div className="project__weather-forecast-future-single">
                         <div>
                             <p>Thu</p>
                             <p>21°</p>
@@ -141,7 +141,7 @@ const ProjectWeatherCondition = () => {
                         <img src={rainCloud} alt="rainCloud" />
                     </div>
 
-                    <div className="account__weather-forecast-future-single">
+                    <div className="project__weather-forecast-future-single">
                         <div>
                             <p>Fri</p>
                             <p>22°</p>
@@ -149,7 +149,7 @@ const ProjectWeatherCondition = () => {
                         <img src={rainCloud} alt="rainCloud" />
                     </div>
 
-                    <div className="account__weather-forecast-future-single">
+                    <div className="project__weather-forecast-future-single">
                         <div>
                             <p>Sat</p>
                             <p>21°</p>
@@ -161,14 +161,14 @@ const ProjectWeatherCondition = () => {
             </div>
         </div>
         
-        <div className="account__weather-wrapper-card">
+        <div className="project__weather-wrapper-card">
             <p name="head">Notification</p>
-            <div className="account__weather-wrapper-notification-head">
+            <div className="project__weather-wrapper-notification-head">
                 <p>№</p>
                 <p>Description</p>
                 <p>Due date</p>
             </div>
-            <div className="account__weather-wrapper-notification">
+            <div className="project__weather-wrapper-notification">
                 {notificationContent}
             </div>
         </div>

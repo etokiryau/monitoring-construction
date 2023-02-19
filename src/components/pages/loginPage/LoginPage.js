@@ -11,7 +11,7 @@ const LoginPage = () => {
     let navigate = useNavigate();
     let location = useLocation();
     
-    const { signin } = useContext(AuthContext)
+    const { signin, signout } = useContext(AuthContext)
 
     let from = location.state?.from?.pathname || "/project";
 
@@ -19,8 +19,9 @@ const LoginPage = () => {
         let userInfo = data;
 
         signin(userInfo, () => {
-            navigate(from, { replace: true });;
+            navigate(from, { replace: true });
         });
+        setTimeout(() => signout(), 18000000)
     }
 
     return (

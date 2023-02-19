@@ -1,4 +1,4 @@
-.account {
+.project {
     &__statistics {
         margin-top: 75px;
         font-size: 31px;
@@ -115,7 +115,7 @@
 }
 
 @media (max-width: 1000px) {
-    .account {
+    .project {
         &__statistics {
             &-material-volume, &-plan-fact {
                 flex-direction: column;
@@ -125,7 +125,7 @@
 }
 
 @media (max-width: 800px) {
-    .account {
+    .project {
         &__statistics {
             &-end-date,
             &-material-volume,
@@ -170,7 +170,7 @@
 }
 
 @media (max-width: 620px) {
-    .account {
+    .project {
         &__statistics {
             margin-top: 50px;
             font-size: 21px;

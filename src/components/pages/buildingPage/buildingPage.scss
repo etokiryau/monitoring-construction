@@ -1,3 +1,8 @@
+.taskcard-wrapper {
+    position: absolute;
+    z-index: 3;
+}
+
 .viewer {
     position: relative;
     margin: 50px 12%;
@@ -13,6 +18,10 @@
     div {
         .taskcard-wrapper {
             width: 100%;
+        }
+
+        .viewer {
+            margin: 20px 5%;
         }
     }
     

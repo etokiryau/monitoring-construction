@@ -41,11 +41,14 @@
     &__instruction {
         margin-top: 27px;
         margin-left: 30px;
-        display: flex;
         font-size: 15px;
         line-height: 30px;
-        gap: 15px;
         cursor: pointer;
+
+        a {
+            display: flex;
+            gap: 15px;
+        }
 
         img {
             width: 30px;
@@ -64,7 +67,6 @@
             padding: 40px;
             display: flex;
             justify-content: space-between;
-            // flex-wrap: wrap;
             gap: 15px;
             border: solid thin #3D3D3D;
             border-radius: 30px;
@@ -74,7 +76,7 @@
                 text-align: left;
                 width: 40%;
                 
-                div {
+                a {
                     margin-top: 20px;
                     display: flex;
                     align-items: flex-end;
@@ -101,13 +103,36 @@
             }
 
             &-right {
-                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 width: 60%;
                 height: 300px;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: 50% 50%;
+                
+                div {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 150px;
+                    height: 150px;
+                    background-color: #ffffff;
+                    border-radius: 50%;
 
-                .viewer-container {
-                    height: 100%;
+                    cursor: pointer;
+                    transition: .2s ease-in-out;
+
+                    &:hover {
+                        transform: scale(1.1);
+                    }
                 }
+
+                img {
+                    width: 70%;
+                }
+
             }
         }
     }
@@ -168,8 +193,6 @@
                 gap: 15px;
     
                 &-left {
-                    
-                    
                     div {
                         margin-top: 15px;
                         gap: 10px;
@@ -186,9 +209,15 @@
                     p {
                         font-size: 20px;
                     }
-    
-                    
-    
+                }
+
+                &-right {
+                    height: 150px;
+
+                    div {
+                        width: 80px;
+                        height: 80px;
+                    }
                 }
             }
         }

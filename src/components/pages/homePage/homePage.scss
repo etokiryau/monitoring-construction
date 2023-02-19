@@ -1,4 +1,4 @@
-.main {
+.home {
     &__content {
         
         overflow-y: auto;
@@ -35,7 +35,7 @@
 }
 
 @media (max-width: 620px) {
-    .main {
+    .home {
         h1 {
             font-size: 2em;
         }
@@ -50,6 +50,15 @@
 
         h4 {
             font-size: 1em;
+        }
+
+        &__content {
+            a {
+                &:hover {
+                    letter-spacing: 0.1em;;
+                    box-shadow: none;
+                }
+            }
         }
     }
 }
