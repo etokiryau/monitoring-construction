@@ -86,20 +86,31 @@ const ProjectStatistics = () => {
     const lineOptions = {
         responsive: true,
         aspectRatio: windowWidth > 620 ? 1.3 : 1.7,
+        interaction: {
+            mode: 'index',
+            intersect: false,
+        },
         plugins: {
-          legend: {
-            display: false,
-            position: 'top',
-          },
-          title: {
-            display: false,
-            text: 'PLAN/FACT',
-          },
+            tooltip: {
+                enabled: true
+            },
+            legend: {
+                display: false,
+                position: 'top',
+            },
+            title: {
+                display: false,
+                text: 'PLAN/FACT',
+            },
+            tooltip: {
+                intersect: true, 
+            },
         },
         scales: {
             x: {
                 grid: {
                     display: false,
+                    
                 },
                 ticks: {
                     display: false
