@@ -8,14 +8,15 @@ import './taskCard.scss';
 
 const TaskCard = ({toggleTaskModal}) => {
     
-    const [tab, setTab] = useState('overview');
+    const [tab, setTab] = useState('photo');
+
     const windowRef = useRef(window);
     let windowHeight = windowRef.current.innerHeight;
 
     const setContent = (tab) => {
         switch (tab) {
             case 'overview':
-                return <TaskOverview />;
+                return  <TaskOverview />;
             case 'photo':
                 return <TaskPhoto />
             case 'comments':
@@ -24,7 +25,8 @@ const TaskCard = ({toggleTaskModal}) => {
                 new Error('Such content does not exist')
         }
     }
-
+    console.log('taskcard')
+  
     return (
         <div className='task-card'>
             <div className='task-card__wrapper'>

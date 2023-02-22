@@ -11,7 +11,7 @@ const LoginPage = () => {
     let navigate = useNavigate();
     let location = useLocation();
     
-    const { signin, signout } = useContext(AuthContext)
+    const { signin, signout } = useContext(AuthContext);
 
     let from = location.state?.from?.pathname || "/project";
 

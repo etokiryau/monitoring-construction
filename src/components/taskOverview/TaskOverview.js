@@ -1,5 +1,6 @@
-import { useMemo, useRef, useContext } from 'react';
+import { useEffect, useRef, useContext } from 'react';
 
+import { useAutodeskPlatformService } from '../../services/AutodeskPlatformService';
 import { Context } from '../../utilis/Context';
 
 import calendarStart from './img/calendarStart.svg';
@@ -9,14 +10,20 @@ import alarm from './img/alarm.svg';
 import './taskOverview.scss';
 
 const TaskOverview = () => {
-
-    const forge = useContext(Context);
+    const viewerContainer = useRef(null);
+    const {visibleElements, modelUrn} = useContext(Context);
+    const {renderViewer, isolateElements, resetToolbarVisibility} = useAutodeskPlatformService();
     
+    useEffect(() => {
+        renderViewer(modelUrn, viewerContainer);
+        setTimeout(() => {isolateElements(visibleElements); resetToolbarVisibility()}, 1500)
+    }, [modelUrn, visibleElements]);
+
     return (
         <div className="overview">
             <div className="overview__info">
                 <div className="overview__info-part">
-                    <p>Status</p>
+                    <p onClick={() => isolateElements(visibleElements)}>Status</p>
                     <div className="overview__info-part-status">In progress</div>
                 </div>
                 <div style={{borderBottom: 'solid thin #DEDEDE'}}></div>
@@ -47,11 +54,7 @@ const TaskOverview = () => {
                 <p>Brick laying is carried out in weather that does not correspond to the installation technology</p>
             </div>
 
-            <div className="overview__model">
-                <div style={{width: '100%', height: '100px'}} >
-                    {/* {forge} */}
-                </div>
-            </div>
+            <div className="overview__model" ref={viewerContainer} />
         </div>
     )
 }

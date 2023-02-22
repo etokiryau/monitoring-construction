@@ -23,49 +23,57 @@ const Monitoring = ({toggleTaskModal}) => {
                 taskName: 'TASK 1',
                 duration: '1 JAN - 25 MAR',
                 marginLeft: '0px',
-                width: '150px'
+                width: '150px',
+                elementsIds: ['298932', '298817', '903046']
             },
             {
                 taskName: 'TASK 2',
                 duration: '6 JAN - 4 APR',
                 marginLeft: '10px',
-                width: '160px'
+                width: '160px',
+                elementsIds: ['298932']
             },
             {
                 taskName: 'TASK 3',
                 duration: '14/1 - 18/3',
                 marginLeft: '30px',
-                width: '100px'
+                width: '100px',
+                elementsIds: ['298932', '903046']
             },
             {
                 taskName: 'TASK 4',
                 duration: '1/2 - 9/4',
                 marginLeft: '60px',
-                width: '120px'
+                width: '120px',
+                elementsIds: ['298817']
             },
             {
                 taskName: 'TASK 5',
                 duration: '14 JAN - 24 MAY',
                 marginLeft: '30px',
-                width: '230px'
+                width: '230px',
+                elementsIds: ['298932', '298817', '903046']
             },
             {
                 taskName: 'TASK 6',
                 duration: '15 FEB - 12 MAY',
                 marginLeft: '90px',
-                width: '150px'
+                width: '150px',
+                elementsIds: ['298817', '903046']
             },
             {
                 taskName: 'TASK 7',
                 duration: '20 MAR - 22 JUN',
                 marginLeft: '130px',
-                width: '190px'
+                width: '190px',
+                elementsIds: ['298932', '903046']
             },
             {
                 taskName: 'TASK 8',
                 duration: '13 APR - 15 JUL',
                 marginLeft: '180px',
-                width: '190px'
+                width: '190px',
+                elementsIds: ['298932', '298817']
             }
         ]
     }
@@ -140,7 +148,7 @@ const Monitoring = ({toggleTaskModal}) => {
     const renderScheduleContent = (data) => {
         const taskList = data.map((item, i) => {
             return (
-                <p onClick={toggleTaskModal} key={i} className="monitoring__schedule-task-name">{item.taskName}</p>
+                <p onClick={(e) => toggleTaskModal(e)} key={i} data-elements={item.elementsIds} className="monitoring__schedule-task-name">{item.taskName}</p>
             )
         });
 
@@ -155,7 +163,7 @@ const Monitoring = ({toggleTaskModal}) => {
 
             return (  
                 <div key={i} className="monitoring__schedule-task-duration">
-                    <div onClick={toggleTaskModal} className="monitoring__schedule-task-duration-single" style={{marginLeft: item.marginLeft, width: adoptedWidth}}>{item.duration}</div>
+                    <div onClick={(e) => {toggleTaskModal(e)}} className="monitoring__schedule-task-duration-single" data-elements={item.elementsIds} style={{marginLeft: item.marginLeft, width: adoptedWidth}}>{item.duration}</div>
                 </div> 
             )
         });

@@ -15,12 +15,12 @@ const Sidebar = () => {
             <aside>
                 <ul>
                     <li className="aside__button">
-                        <NavLink end style={({isActive}) => ({color: isActive ? '#98fa84' : 'inherit'})} to={`/project`} preventScrollReset={false}>
+                        <NavLink end style={({isActive}) => ({color: isActive ? '#98fa84' : 'inherit'})} to={`/project`}>
                             <img src={project} alt="project" />
                             Project
                         </NavLink></li>
                     <li className="aside__button">
-                        <NavLink end style={({isActive}) => ({color: isActive ? '#98fa84' : 'inherit'})} to={`/documentation`} preventScrollReset={false}>
+                        <NavLink end style={({isActive}) => ({color: isActive ? '#98fa84' : 'inherit'})} to={`/documentation`}>
                             <img src={documentation} alt="documentation" />
                             Documentation
                         </NavLink></li>

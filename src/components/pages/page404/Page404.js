@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
 
-import './page404.scss';
+import ErrorMessage from '../../errorMessage/ErrorMessage';
 
-import img from './error.png'
+import './page404.scss';
 
 const Page404 = () => {
     return (
         <div className='container_error'>
-            <img style={{display: 'block', width: '120px', height: '120px', objectFit: 'contain', margin: '0 auto'}} src={img} alt="error" />
+            <ErrorMessage/>
             <h1 className='error'>We could not find the page on our server</h1>
             <h2>Please redirect to the <Link end to={`/`}>Main page</Link> or <Link end to={`/project`}>Project page</Link></h2>
         </div>

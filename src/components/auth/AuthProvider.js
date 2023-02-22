@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Auth } from "./Auth";
+import { useAuth } from "./useAuth";
 
 const AuthProvider = ({ children, AuthContext}) => {
 
@@ -9,7 +9,7 @@ const AuthProvider = ({ children, AuthContext}) => {
     return storedUser ? JSON.parse(storedUser) : null;
   });
 
-  const { fakeAuthProvider } = Auth();
+  const { fakeAuthProvider } = useAuth();
 
   let signin = (newUser, callback) => {
     return fakeAuthProvider.signin(() => {

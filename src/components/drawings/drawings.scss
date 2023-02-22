@@ -41,6 +41,9 @@
     &__instruction {
         margin-top: 27px;
         margin-left: 30px;
+        display: flex;
+        justify-content: left;
+        width: fit-content;
         font-size: 15px;
         line-height: 30px;
         cursor: pointer;

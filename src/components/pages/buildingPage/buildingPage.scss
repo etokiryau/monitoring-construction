@@ -4,10 +4,10 @@
 }
 
 .viewer {
-    position: relative;
     margin: 50px 12%;
 
     &-container {
+        position: relative;
         width: 100%;
         height: 80vh;
     }

@@ -29,12 +29,18 @@
                 }
             }
 
-            &-inner {
-                margin-top: 60px;
+            &-inner {              
                 display: flex;
                 gap: 20px;
                 justify-content: center;
                 align-items: end;
+
+                &-wrapper {
+                    height: 80%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
             }
 
             img {
@@ -44,9 +50,10 @@
 
         &-material-volume {
             display: flex;
-            gap: 20px;
+            gap: 10px;
 
             p {
+                width: 80px;
                 text-align: left;
             }
         }
@@ -64,10 +71,10 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-
             }
 
             &-wrapper {
+                margin-top: 30px;
                 display: flex;
                 justify-content: center;
             }
@@ -117,8 +124,20 @@
 @media (max-width: 1000px) {
     .project {
         &__statistics {
+            &-end-date {
+                p {
+                    &[name="head"] {
+                        width: fit-content;
+                    }
+                }
+            }
+
             &-material-volume, &-plan-fact {
                 flex-direction: column;
+
+                p {
+                    width: fit-content;
+                }
             }
         }
     }
@@ -175,10 +194,18 @@
             margin-top: 50px;
             font-size: 21px;
 
+            &-wrapper {
+                align-self: center;
+                margin-top: 50px;
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+                gap: 50px;
+            }
+
             &-end-date {
                 p {
                     &[name="date"] {
-                        font-size: 16px;
+                        font-size: 18px;
                     }
                 }
 
@@ -193,6 +220,10 @@
             }
 
             &-fact {
+                &-wrapper {
+                    margin-top: 0px;
+                }
+
                 &-ring {
                     svg {
                         circle {

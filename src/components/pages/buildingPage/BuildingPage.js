@@ -1,24 +1,41 @@
-import { useState, useRef, useMemo, useCallback } from 'react';
+import { useState, useRef, useEffect, useCallback, lazy } from 'react';
 
-import AutodeskPlatformService from '../../../services/AutodeskPlatformService';
+import { useAutodeskPlatformService } from '../../../services/AutodeskPlatformService';
 import Monitoring from '../../monitoring/Monitoring';
-import TaskCard from '../../taskCard/TaskCard';
-
 import { Context } from '../../../utilis/Context';
 
 import './buildingPage.scss';
 
+const TaskCard = lazy(() => import("../../taskCard/TaskCard"));
+
 const Building = () => {
     const [isTaskModalOpen, setIsTaskModalOpen] = useState(false);
     const [position, setPosition] = useState({ x: 0, y: 0 });
+    const [visibleElements, setVisibleElements] = useState('');
+
     const taskModalRef = useRef(null);
     const windowRef = useRef(window);
+    const viewerContainer = useRef(null);
 
-    const modelUrn = 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6dHN3aWdsenZ5dWJtbTZwaG04d2Ria2IzZHhqbmZrcnYtcHJvamVjdF9hL3Byb2plY3RfYV9mcmVlLm53ZA';
+    const {renderViewer, isolateElements, resetIsolation} = useAutodeskPlatformService();
+
+    // const modelUrn = 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6dHN3aWdsenZ5dWJtbTZwaG04d2Ria2IzZHhqbmZrcnYtcHJvamVjdF9hL3Byb2plY3RfYV9mcmVlLm53ZA';
+    const modelUrn = 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6dGVzdF9wbGF0Zm9ybS90ZXN0MDEuemlw';
 
     const toggleTaskModal = () => {
-        setIsTaskModalOpen(!isTaskModalOpen)
+      setIsTaskModalOpen(!isTaskModalOpen);
     }
+
+    const updateVisibleElements = useCallback((e) => {
+      if (!isTaskModalOpen) {
+        const data = e.target.getAttribute('data-elements');
+        setVisibleElements(data);
+        resetIsolation();
+        isolateElements(data);
+      } else {
+        resetIsolation();
+      }
+    }, [isTaskModalOpen])
 
     const handleMouseDown = (event) => {
         const initialX = event.clientX - position.x;
@@ -53,12 +70,12 @@ const Building = () => {
         });
     };
 
-    // const forge = useCallback((viewerContainer) => {return <AutodeskPlatformService modelUrn={modelUrn} viewerContainer={viewerContainer}/>}, [viewerContainer])
-      const forge = useMemo(() => {return <AutodeskPlatformService modelUrn={modelUrn}/>}, [modelUrn])
+    useEffect(() => {renderViewer(modelUrn, viewerContainer)}, [modelUrn]);
+ 
     return (
-      <Context.Provider value={forge}>
+      <Context.Provider value={{visibleElements, modelUrn}}>
         <div style={{position: 'relative'}}>
-          <Monitoring toggleTaskModal={toggleTaskModal}/>
+          <Monitoring toggleTaskModal={(e) => {toggleTaskModal(); updateVisibleElements(e)}} updateVisibleElements={updateVisibleElements}/>
           
           <div ref={taskModalRef}
                 style={{display: isTaskModalOpen ? 'block' : 'none', 
@@ -67,16 +84,14 @@ const Building = () => {
                         }}
                 className="taskcard-wrapper"
                 onMouseDown={handleMouseDown}>
-              <TaskCard toggleTaskModal={toggleTaskModal} modelUrn={modelUrn}/>
+              <TaskCard toggleTaskModal={(e) => {toggleTaskModal(); updateVisibleElements(e)}}/>
           </div>
-         
+
           <div className='viewer'>
-            <div className='viewer-container' >
-              {forge}
-            </div>
+            <div className='viewer-container' ref={viewerContainer} />
           </div>
         </div> 
-        </Context.Provider>
+      </Context.Provider>
     )
 }
 

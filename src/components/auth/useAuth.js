@@ -1,4 +1,4 @@
-export const Auth = () => {
+export const useAuth = () => {
 
   const fakeAuthProvider = {
     isAuthenticated: false,

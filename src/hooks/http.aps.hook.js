@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useState, useCallback } from "react";
 
 export const useHttpAps = () => {
     const clientId = 'tSWiGLZVyUbMm6phm8wDBkb3dxjNFkRv';
@@ -20,10 +20,9 @@ export const useHttpAps = () => {
             }
 
             const data = await response.json();
-            
-            const token = await data.access_token;
-            
-            return await token;
+            const token = data.access_token;
+
+            return token;
         } catch(e) {
             throw e;
         } 
