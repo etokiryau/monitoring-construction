@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useMemo } from 'react';
 
 import TaskOverview from '../taskOverview/TaskOverview';
 import TaskPhoto from '../taskPhoto/TaskPhoto'
@@ -25,7 +25,8 @@ const TaskCard = ({toggleTaskModal}) => {
                 new Error('Such content does not exist')
         }
     }
-    console.log('taskcard')
+
+    const tabContent = useMemo(() => setContent(tab), [tab]);
   
     return (
         <div className='task-card'>
@@ -44,7 +45,7 @@ const TaskCard = ({toggleTaskModal}) => {
                     </ul>
                 </div>
                 <div className='task-card__content' style={{maxHeight: windowHeight - 170}}>
-                    {setContent(tab)}
+                    {tabContent}
                 </div>
             </div>
         </div>

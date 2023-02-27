@@ -1,0 +1,53 @@
+footer { 
+    margin: 50px 0px;
+    .footer {
+        &__line {
+            margin: auto;
+            position: relative;
+            width: 70%;
+            height: 1px;          
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 50%; 
+                width: 50%;
+                height: 100%; 
+                background: linear-gradient(to left, transparent, rgba(0, 0, 0, 0.5)); 
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0%; 
+                width: 50%; 
+                height: 100%; 
+                background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.5)); 
+            }
+        }
+
+        &__content {
+            margin-top: 60px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            font-size: 12px;
+
+            &-links {
+                display: flex;
+                gap: 40px;
+            }
+
+            &-media {
+                display: flex;
+                gap: 10px;
+
+                img {
+                    width: 40px;
+                }
+            }
+        }
+    }
+}

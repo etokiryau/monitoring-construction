@@ -74,6 +74,27 @@ const Monitoring = ({toggleTaskModal}) => {
                 marginLeft: '180px',
                 width: '190px',
                 elementsIds: ['298932', '298817']
+            },
+            {
+                taskName: 'TASK 9',
+                duration: '13 APR - 15 JUL',
+                marginLeft: '180px',
+                width: '190px',
+                elementsIds: ['298932', '298817']
+            },
+            {
+                taskName: 'TASK 9',
+                duration: '13 APR - 15 JUL',
+                marginLeft: '180px',
+                width: '190px',
+                elementsIds: ['298932', '298817']
+            },
+            {
+                taskName: 'TASK 9',
+                duration: '13 APR - 15 JUL',
+                marginLeft: '180px',
+                width: '190px',
+                elementsIds: ['298932', '298817']
             }
         ]
     }
@@ -197,9 +218,11 @@ const Monitoring = ({toggleTaskModal}) => {
                     <input id="monitoring__schedule-slider" onChange={(e) => onChangeSlider(e.target.value)} type="range" value={sliderPosition} min={0} max={100}/>
                 </div>
                 <div className="monitoring__schedule-dates">
-                    <div  className="monitoring__schedule-dates-search">
-                        <div id='icon-search'></div>
-                        <input type="text" onChange={(e) => onUpdateSearchValue(e.target.value)} value={term}/>
+                    <div className="monitoring__schedule-dates-search-wrapper">
+                        <div className="monitoring__schedule-dates-search">
+                            <div id='icon-search'></div>
+                            <input type="text" onChange={(e) => onUpdateSearchValue(e.target.value)} value={term}/>
+                        </div>
                     </div>
                     <div  className="monitoring__schedule-monthes-wrapper">
                         {monthesContent}

@@ -1,12 +1,16 @@
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import { useNavigate, useLocation, Link} from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 
-import { AuthContext } from "../../auth/AuthContext";
+import { AuthContext } from "../../auth/AuthProvider";
+import googleLogo from './img/googleLogo.png';
+import facebookLogo from './img/facebookLogo.png';
+import appleLogo from './img/appleLogo.png';
 
 import './loginPage.scss';
 
 const LoginPage = () => {
+    const [isSignupOpen, setIsSignupOpen] = useState(false);
 
     let navigate = useNavigate();
     let location = useLocation();
@@ -21,7 +25,10 @@ const LoginPage = () => {
         signin(userInfo, () => {
             navigate(from, { replace: true });
         });
-        setTimeout(() => signout(), 18000000)
+    }
+
+    const toggleSignup = () => {
+        setIsSignupOpen(!isSignupOpen);
     }
 
     return (
@@ -76,34 +83,109 @@ const LoginPage = () => {
                     </Form>
                 </Formik>
                 <div className="login__registration">
-                    <p>Sign up</p>
+                    <p onClick={toggleSignup}>Sign up</p>
                     <p>Forgot password?</p>
+                </div>
+                
+                {/* SIGN UP */}
+
+                <div className="signup" style={{transform: `translateY(${isSignupOpen ? '0px' : '600px'})` }}>
+                    <h2>Sign up</h2>
+                    
+                    <Formik
+                        initialValues={{
+                            email: '',
+                            name: '',
+                            password: '',
+                            confirmedPassword: ''
+                        }}
+                        validate={values => {
+                            const errors = {};
+                            if (!values.name) {
+                                errors.name = 'Name is required';
+                            }
+                            if (!values.email) {
+                            errors.email = 'Email is required';
+                            }
+                            if (!values.password) {
+                            errors.password = 'Password is required';
+                            }
+                            return errors;
+                        }}
+                        onSubmit={handleSubmit}
+                    >
+                        <Form className="signup__form">
+                            <div className="signup__form-input-wrapper" >
+                                <div className="signup__form-single"> 
+                                    {/* <label htmlFor="name">Name</label> */}
+                                    <Field 
+                                        className="signup__form-input" 
+                                        type="text" 
+                                        id="name" 
+                                        name="name" 
+                                        placeholder="your name" />
+                                    <div name="separation" />
+                                    {/* <ErrorMessage name="name" component="div" className="signup__form-input-error"/> */}
+                                </div>
+                                <div className="signup__form-single"> 
+                                    <Field 
+                                        className="signup__form-input" 
+                                        type="email" 
+                                        id="email" 
+                                        name="email" 
+                                        placeholder="your email" />
+                                    <div name="separation" />
+                                    {/* <ErrorMessage name="email" component="div" className="signup__form-input-error"/> */}
+                                </div>
+                                <div className="signup__form-single">
+                                    <Field
+                                        className="signup__form-input"
+                                        id="password"
+                                        name="password"
+                                        placeholder="create password"
+                                        type="password"
+                                    />
+                                    <div name="separation" />
+                                    {/* <ErrorMessage name="password" component="div" className="login__form-input-error"/> */}
+                                    
+                                </div>
+                                <div className="signup__form-single"> 
+                                    <Field
+                                        className="signup__form-input"
+                                        id="confirmedPassword"
+                                        name="confirmedPassword"
+                                        placeholder="confirm password"
+                                        type="password"
+                                    />
+                                    {/* <ErrorMessage name="email" component="div" className="signup__form-input-error"/> */}
+                                </div>
+                            </div>
+
+                            <div className="signup__form-button">
+                                <p name="back-to-signin" onClick={toggleSignup}>Already have an account? Sign in</p>
+                                <button type="submit">Sign up</button>
+                            </div>
+                        </Form>
+                    </Formik>
+
+                    <div className="signup__registration">
+                        <p>Continue with</p>
+                        <div>
+                            <a href="#">
+                                <img src={googleLogo} alt="google-logo" />
+                            </a>
+                            <a href="#">
+                                <img src={facebookLogo} alt="facebook-logo" />
+                            </a>
+                            <a href="#">
+                                <img src={appleLogo} alt="apple-logo" />
+                            </a>
+                        </div>
+                    </div>    
                 </div>
             </div>
         </div>
     )
 }
-
-// function AuthStatus() {
-//     let auth = useAuth();
-//     let navigate = useNavigate();
-  
-//     if (!auth.user) {
-//       return <p>You are not logged in.</p>;
-//     }
-  
-//     return (
-//       <p>
-//         Welcome {auth.user}!{" "}
-//         <button
-//           onClick={() => {
-//             auth.signout(() => navigate("/"));
-//           }}
-//         >
-//           Sign out
-//         </button>
-//       </p>
-//     );
-//   }
 
 export default LoginPage;

@@ -1,6 +1,6 @@
 .monitoring {
-    padding: 105px 30px 0px 30px;
     text-align: center;
+    height: 100%;
 
     &__head {
         font-size: 31px;
@@ -8,7 +8,7 @@
 
     &__wrapper {
         display: inline-block;
-        width: 80%;
+        width: 100%;
         margin-top: 75px;
     }
 
@@ -56,15 +56,27 @@
 
             &-search {
                 position: relative;
-                width: 16%;
+                width: 0px;
+                transition: 0.3s ease-in-out;
+
+                &:focus-within {
+                    width: 100px; 
+                }
+
+                &-wrapper {
+                    text-align: left;
+                    width: 16%;
+                    z-index: 1;
+                }
 
                 input[type="text"] {
                     width: 100%;
                     height: 30px;
                     border: solid thin #3D3D3D;
                     outline: none;
-                    padding: 0 25px;
+                    padding-left: 30px;
                     border-radius: 15px;
+                                        
                 }
 
                 #icon-search {
@@ -76,6 +88,7 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    pointer-events: none;
                     z-index: 0;
 
                     &::before {
@@ -124,7 +137,7 @@
             gap: 20px;
             overflow: auto;
             width: 100%;
-            max-height: 300px;
+            max-height: 40vh;
 
             &-wrapper {
                 margin-top: 20px;
@@ -155,7 +168,7 @@
         &-task {
             &-name {
                 text-align: left;
-                line-height: 26px;
+                line-height: 21px;
                 cursor: pointer;
 
                 &-list {
@@ -170,7 +183,8 @@
                 text-align: left;
                 background-color: #E5E5E5;
                 border-radius: 10px;
-                line-height: 25px;
+                line-height: 20px;
+                
 
                 &-wrapper {
                     overflow: hidden;
@@ -203,15 +217,12 @@
 
 @media (max-width: 800px) {
     .monitoring {
-        padding-top: 50px;
-
         &__head {
             font-size: 25px;
         }
 
         &__wrapper {
-            margin-top: 60px;
-            width: 90%;
+            margin-top: 50px;
         }
 
         &__schedule {
@@ -243,6 +254,8 @@
             }
 
             &-tasks {
+                max-height: calc(48vh - 65px);
+
                 &::-webkit-scrollbar {
                     width: 15px;
                 }
@@ -280,13 +293,12 @@
 
 @media (max-width: 620px) {
     .monitoring {
-        padding: 60px 2.5% 0px 2.5%;
-
         &__schedule {
             font-size: 16px;
 
             &-tasks {
                 gap: 10px;
+                max-height: calc(60vh - 65px);
 
                 &-wrapper {
                     margin-top: 10px;
@@ -294,14 +306,9 @@
             }
             
             &-dates {
-                gap: 13%;
-
                 &-search {
-                    width: auto;
-
-                    input[type="text"] {
-                        padding: 0;
-                        width: 30px;
+                    &-wrapper {
+                        width: 16%;
                     }
                 }
             }

@@ -11,13 +11,13 @@ import './taskOverview.scss';
 
 const TaskOverview = () => {
     const viewerContainer = useRef(null);
-    const {visibleElements, modelUrn} = useContext(Context);
+    const {visibleElements, modelUrn, isTaskModalOpen} = useContext(Context);
     const {renderViewer, isolateElements, resetToolbarVisibility} = useAutodeskPlatformService();
     
     useEffect(() => {
         renderViewer(modelUrn, viewerContainer);
         setTimeout(() => {isolateElements(visibleElements); resetToolbarVisibility()}, 1500)
-    }, [modelUrn, visibleElements]);
+    }, [isTaskModalOpen, visibleElements]);
 
     return (
         <div className="overview">

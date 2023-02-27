@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, createContext } from "react";
 
 import { useAuth } from "./useAuth";
 
-const AuthProvider = ({ children, AuthContext}) => {
+export const AuthContext = createContext();
+
+export const AuthProvider = ({ children }) => {
 
   const [user, setUser] = useState(() => {
     const storedUser = localStorage.getItem('user');
@@ -13,7 +15,7 @@ const AuthProvider = ({ children, AuthContext}) => {
 
   let signin = (newUser, callback) => {
     return fakeAuthProvider.signin(() => {
-      localStorage.setItem('user', JSON.stringify(newUser));
+      sessionStorage.setItem('user', JSON.stringify(newUser));
       setUser(newUser);
       callback();
     })
@@ -21,7 +23,7 @@ const AuthProvider = ({ children, AuthContext}) => {
 
   let signout = (callback) => {
     return fakeAuthProvider.signout(() => {
-      localStorage.removeItem('user');
+      sessionStorage.removeItem('user');
       setUser(null);
       callback();
     });
@@ -31,5 +33,3 @@ const AuthProvider = ({ children, AuthContext}) => {
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
-
-export default AuthProvider;

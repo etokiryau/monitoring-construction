@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useContext} from 'react';
 import { useNavigate } from "react-router-dom";
 import { Formik, Field, Form } from 'formik';
-import { AuthContext } from '../auth/AuthContext';
+import { AuthContext } from '../auth/AuthProvider';
 
 import icon from './img/user.png';
 import close from './img/close.png';

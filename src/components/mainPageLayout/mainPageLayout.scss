@@ -1,0 +1,16 @@
+.main {
+    font-weight: 300;
+    
+    .home-btn {
+        position: fixed;
+        top: 40px;
+        left: 40px;
+        transition: .3s;
+        z-index: 50;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+        
+    }
+}
