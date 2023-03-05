@@ -88,6 +88,8 @@
         
         &-wrapper {
             position: fixed;
+            top: 0;
+            left: 0;
             height: 100%;
             width: 100%;
             background-color: rgba(0,0,0, .5);
@@ -239,7 +241,6 @@
             button {
                 font-size: 14px;
                 &[name="image"] {
-                    
                     margin-bottom: 20px;
                     padding: 7px 20px;
                     max-width: max-content;
@@ -299,27 +300,3 @@
         }
     }
 }
-
-// @media (max-width: 500px) {
-//     .project {
-//         &__statistics {
-//             &-fact {
-//                 &-ring {
-//                     width: 100px;
-//                     height: 100px;
-
-//                     svg {
-//                         circle {
-//                             r: 20;
-//                             stroke-width: 4;
-
-//                             &:nth-child(2) {
-//                                 stroke-dasharray: 251;
-//                             }
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// }

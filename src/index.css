@@ -59,6 +59,11 @@ img, svg {
   height: auto;
 }
 
+video {
+  width: 100%;
+  height: 100%;
+}
+
 /* Form */
 input, textarea, button, select {
   font-family: inherit;

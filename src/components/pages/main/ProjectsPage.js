@@ -1,12 +1,11 @@
-
+import Projects from "../../projects/Projects";
 
 const ProjectsPage = () => {
 
-
     return (
-        <div>
-            ProjectsPage
-        </div>
+        <>
+            <Projects/>
+        </>
     )
 }
 

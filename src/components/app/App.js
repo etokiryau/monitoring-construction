@@ -6,7 +6,7 @@ import { AuthProvider } from "../auth/AuthProvider";
 import RequireAuth from "../auth/RequireAuth";
 
 import { ProjectPage, DocumentationPage, BuildingPage, SmartHousePage, SupportPage } from "../pages/account";
-import { HomePage, AdvantagesPage, BlogPage, CareerPage, ContactsPage, FaqPage, PolicyPage, ProjectsPage} from "../pages/main";
+import { HomePage, AdvantagesPage, ServicesPage, BlogPage, CareerPage, ContactsPage, FaqPage, PolicyPage, ProjectsPage, SingleProjectPage} from "../pages/main";
 
 const MainPageLayout = lazy(() => import("../mainPageLayout/MainPageLayout"));
 const LoginPage = lazy(() => import("../pages/loginPage/LoginPage"));
@@ -14,6 +14,7 @@ const AccountLayout = lazy(() => import("../accountLayout/AccountLayout"));
 const Page404 = lazy(() => import("../pages/page404/Page404"));
 const SolutionViewerPage = lazy(() => import("../pages/account/solutionViewerPage/SolutionViewerPage"));
 const PlatformInstructionsPage = lazy(() => import("../pages/platformInstructionsPage/PlatformInstructionsPage"));
+const MapPage = lazy(() => import("../pages/mapPage/MapPage"));
 
 
 function App() {
@@ -22,19 +23,22 @@ function App() {
     <AuthProvider>
       <Suspense fallback={<Spinner/>}>
         <Routes>
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/instructions" element={<PlatformInstructionsPage />} />
+            <Route path="/login" element={<LoginPage />} /> 
+            <Route path="/map" element={<MapPage />} />
             <Route exact path='*' element={<Page404 />}/>
 
             <Route element={<MainPageLayout/>}>
               <Route path="/" element={<HomePage />} />
               <Route path="/projects" element={<ProjectsPage />} />
+              <Route path="/projects/:id" element={<SingleProjectPage />} />
               <Route path="/advantages" element={<AdvantagesPage />} />
+              <Route path="/services" element={<ServicesPage />} />
               <Route path="/questions" element={<FaqPage />} />
               <Route path="/career" element={<CareerPage />} />
               <Route path="/contacts" element={<ContactsPage />} />
               <Route path="/blog" element={<BlogPage />} />
               <Route path="/policy" element={<PolicyPage />} />
+              <Route path="/instructions" element={<PlatformInstructionsPage />} />
             </Route>
 
             <Route element={<AccountLayout />}>

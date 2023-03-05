@@ -44,29 +44,28 @@ const ProjectStatistics = () => {
         aspectRatio: windowWidth > 620 ? 1.3 : 1.7,
         borderRadius: 22,
         plugins: {
-          legend: {
-            display: false,
-            position: 'top'
-          },
-          title: {
-            display: false,
-            text: 'Material volume',
-          },
+            legend: {
+                display: false,
+                position: 'top'
+            },
+            title: {
+                display: false,
+                text: 'Material volume',
+            }
         },
         scales: {
             x: {
-              grid: {
-                display: false,
-              },
+                grid: {
+                    display: false,
+                },
             },
             y: {
                 ticks: {
                   stepSize: 10,
                   beginAtZero: true, 
                 },
-            },
-            
-        },
+            }
+        }
     };
 
     const barData = {
@@ -189,7 +188,7 @@ const ProjectStatistics = () => {
                                 <svg>
                                     <circle cx="50%" cy="50%" r="60"/>
                                     <circle cx="50%" cy="50%" r="60"
-                                        strokeDashoffset={windowWidth > 800 ? 'calc(377 - (377 * 35) / 100)' : 'calc(251 - (251 * 35) / 100)'}/>
+                                        strokeDashoffset={377 - (377 * 35) / 100}/>
                                 </svg>
                                 <p name="progress">35%</p>
                             </div>

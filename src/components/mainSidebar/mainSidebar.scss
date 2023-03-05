@@ -1,10 +1,12 @@
 aside#main {
+    font-weight: 300;
+    
     .aside {
         &__burger {
             position: fixed;
             display: block;
             top: 40px;
-            right: 40px;
+            right: 25px;
             width: 40px;
             height: 20px;
             cursor: pointer;
@@ -127,5 +129,20 @@ aside#main {
             }
         }
     }
-    
+}
+
+@media (max-width: 660px) {
+    aside#main {
+        .aside {
+            &__burger {
+                &:hover {
+                    transform: none;
+                }
+            }
+            &__content {
+                padding: 48px 35px 40px 25px;
+                width: fit-content;
+            }
+        }
+    }
 }

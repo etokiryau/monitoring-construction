@@ -1,5 +1,7 @@
 footer { 
     margin: 50px 0px;
+    padding: 0px 10px;
+
     .footer {
         &__line {
             margin: auto;
@@ -32,21 +34,44 @@ footer {
             margin-top: 60px;
             display: flex;
             justify-content: space-around;
+            gap: 20px;
             align-items: center;
             font-size: 12px;
 
             &-links {
                 display: flex;
                 gap: 40px;
+                line-height: 20px;
             }
 
             &-media {
                 display: flex;
+                flex-wrap: wrap;
                 gap: 10px;
 
                 img {
                     width: 40px;
                 }
+            }
+        }
+    }
+}
+
+@media (max-width: 660px) {
+    footer {
+        .footer {
+            &__line {
+                width: 80%;
+            }
+
+            &__content {
+                margin-top: 50px;
+
+                &-links {
+                    flex-direction: column;
+                    gap: 10px;
+                }
+                
             }
         }
     }

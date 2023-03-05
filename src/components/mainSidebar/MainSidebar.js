@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect } from "react";
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
+import CustomNavLink from '../../utilis/CustomNavLink';
 import { AuthContext } from '../auth/AuthProvider';
 
 import instagramLogo from '../footer/img/instagramLogo.png';
@@ -35,14 +36,15 @@ const MainSidebar = () => {
             
             <div onClick={toggleSidebar} style={{display: isSidebarOpen ? '' : 'none'}} className="aside__wrapper"/>
 
-            <div className="aside__content" style={{top: isSidebarOpen ? '0px' : '-100%'}}>
+            <div className="aside__content" style={{top: isSidebarOpen ? '0px' : '-250%'}}>
                     <ul >
-                        <li onClick={toggleSidebar}><NavLink className={({isActive}) => isActive ? 'active' : ''} to='/'>Home</NavLink></li>
-                        <li onClick={toggleSidebar}><NavLink to='/projects'>Projects</NavLink></li>
-                        <li onClick={toggleSidebar}><NavLink to='/advantages'>Advantages</NavLink></li>
-                        <li onClick={toggleSidebar}><NavLink to='/questions'>FAQ</NavLink></li>
-                        <li onClick={toggleSidebar}><NavLink to='/career'>Career</NavLink></li>
-                        <li onClick={toggleSidebar}><NavLink to='/contacts'>Contacts</NavLink></li>
+                        <li onClick={toggleSidebar}><CustomNavLink to='/' preventScrollReset={false}>Home</CustomNavLink></li>
+                        <li onClick={toggleSidebar}><CustomNavLink to='/projects' preventScrollReset={false}>Projects</CustomNavLink></li>
+                        <li onClick={toggleSidebar}><CustomNavLink to='/advantages'>Advantages</CustomNavLink></li>
+                        <li onClick={toggleSidebar}><CustomNavLink to='/services'>Services</CustomNavLink></li>
+                        <li onClick={toggleSidebar}><CustomNavLink to='/questions'>FAQ</CustomNavLink></li>
+                        <li onClick={toggleSidebar}><CustomNavLink to='/career'>Career</CustomNavLink></li>
+                        <li onClick={toggleSidebar}><CustomNavLink to='/contacts'>Contacts</CustomNavLink></li>
                     </ul>
 
                     <div className="aside__content-beneath">
@@ -51,13 +53,10 @@ const MainSidebar = () => {
                             <a href=""><img src={facebookLogo} alt="facebook" /></a>
                             <a href=""><img src={linkedinLogo} alt="linkedin" /></a>
                         </div>
-                        <Link to="/login">Login</Link>
+                        <Link to={pathname}>Login</Link>
                         <p>En</p>
                     </div>
-         
-                    
                 </div>
-            
         </aside>
     )
 }

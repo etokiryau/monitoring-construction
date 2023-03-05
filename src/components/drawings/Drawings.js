@@ -84,7 +84,7 @@ const Drawings = () => {
         window.scrollTo({
             top: offsetY - window.innerHeight / 2 + 120,
             behavior: 'smooth'
-          });
+        });
     }
 
     const getRef = (solution) => {

@@ -19,7 +19,7 @@ const Building = () => {
   let windowWidth = windowRef.current.innerWidth;
   const viewerContainer = useRef(null);
 
-  const {renderViewer, isolateElements, resetIsolation} = useAutodeskPlatformService();
+  const {renderViewer, isolateElements, resetIsolation, getProperties} = useAutodeskPlatformService();
 
   // const modelUrn = 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6dHN3aWdsenZ5dWJtbTZwaG04d2Ria2IzZHhqbmZrcnYtcHJvamVjdF9hL3Byb2plY3RfYV9mcmVlLm53ZA';
   const modelUrn = 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6dGVzdF9wbGF0Zm9ybS90ZXN0MDEuemlw';
@@ -78,26 +78,19 @@ const Building = () => {
       });
   };
 
-  const setViewer = useMemo(() => {
-    if (isViewerVisible) {
-      renderViewer(modelUrn, viewerContainer);
-
-      return (
-        <div className='building__content viewer'>
-            <div className='viewer-container' ref={viewerContainer} />
-        </div>
-      )
-    }
-  }, [isViewerVisible]);
+  useEffect(() => {renderViewer(modelUrn, viewerContainer)}, [modelUrn]);
     
   return (
     <Context.Provider value={{isTaskModalOpen, visibleElements, modelUrn}}>
+      {/* <button onClick={getProperties}>click</button> */}
       <div className='building'>
         <div className='building__content'>
           <Monitoring toggleTaskModal={(e) => {toggleTaskModal(); updateVisibleElements(e)}} updateVisibleElements={updateVisibleElements}/>
         </div>
-        
-        {setViewer}
+
+        <div className='building__content viewer'>
+          <div className='viewer-container' ref={viewerContainer} />
+        </div>
 
         <div ref={taskModalRef}
               style={{display: isTaskModalOpen ? 'block' : 'none', 
@@ -106,8 +99,10 @@ const Building = () => {
                       }}
               className="taskcard-wrapper"
               onMouseDown={handleMouseDown}>
-            <TaskCard toggleTaskModal={(e) => {toggleTaskModal(); updateVisibleElements(e)}}/>
+          <TaskCard toggleTaskModal={(e) => {toggleTaskModal(); updateVisibleElements(e)}}/>
         </div>
+
+        
       </div> 
     </Context.Provider>
   )

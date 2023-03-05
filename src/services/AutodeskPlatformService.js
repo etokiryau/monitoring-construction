@@ -87,7 +87,17 @@ export const useAutodeskPlatformService = () => {
         viewer.toolbar.setVisible(false);
     }, []);
 
-    return {viewer, renderViewer, isolateElements, resetIsolation, resetToolbarVisibility};
+    const getProperties = useCallback(async() => {
+        const selectedElement = viewer.getSelection()[0];
+        const propertyValue = viewer.getProperties(selectedElement, function(result) {
+            console.log(result);
+        });
+        // const propertyDb = viewer.model.getPropertyDb();
+        // const elementProperties = await viewer.getProperties(propertyDb.cbId);
+        // console.log(elementProperties)
+    }, [])
+
+    return {viewer, renderViewer, isolateElements, resetIsolation, resetToolbarVisibility, getProperties};
 }
 
         // const modelInstances = viewer.getVisibleModels();

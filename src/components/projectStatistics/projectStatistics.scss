@@ -91,6 +91,7 @@
                         fill: transparent;
                         stroke-width: 15;
                         stroke: #E6E6E6;
+                        stroke-linecap: round;
 
                         &:nth-child(2) {
                             stroke: #3D3D3D;
@@ -222,19 +223,6 @@
             &-fact {
                 &-wrapper {
                     margin-top: 0px;
-                }
-
-                &-ring {
-                    svg {
-                        circle {
-                            r: 40;
-                            stroke-width: 8;
-
-                            &:nth-child(2) {
-                                stroke-dasharray: 251;
-                            }
-                        }
-                    }
                 }
             }
         }
