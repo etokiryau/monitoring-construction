@@ -9,8 +9,7 @@ import suportAbs from './img/supportAbs.svg';
 
 import './accountSidebar.scss';
 
-const AccountSidebar
- = () => {
+const AccountSidebar = () => {
     const setActiveStyle = ({isActive}) => ({color: isActive ? '#98fa84' : 'inherit'});
 
     return (
@@ -18,34 +17,34 @@ const AccountSidebar
             <aside id="account">
                 <ul>
                     <li>
-                        <NavLink end style={setActiveStyle} to={`/project`}>
+                        <NavLink end="true" style={setActiveStyle} to={`/project`}>
                             <img src={project} alt="project" />
                             Project
                         </NavLink></li>
                     <li>
-                        <NavLink end style={setActiveStyle} to={`/documentation`}>
+                        <NavLink end="true" style={setActiveStyle} to={`/documentation`}>
                             <img src={documentation} alt="documentation" />
                             Documentation
                         </NavLink></li>
                     <li>
-                        <NavLink end style={setActiveStyle} to={`/building`}>
+                        <NavLink end="true" style={setActiveStyle} to={`/building`}>
                             <img src={building} alt="building" />
                             Building
                         </NavLink></li>
                     <li>
-                        <NavLink end style={setActiveStyle} to={`/smarthouse`}>
+                        <NavLink end="true" style={setActiveStyle} to={`/smarthouse`}>
                             <img src={smartHouse} alt="smartHouse" />
                             Smart house
                         </NavLink></li>
                     <li className="support">
-                        <NavLink end style={setActiveStyle} to={`/support`}>
+                        <NavLink end="true" style={setActiveStyle} to={`/support`}>
                             <img src={support} alt="support" />
                             Support
                         </NavLink></li>
                 </ul>
             </aside>
 
-            <Link end to={`/support`} className="support-btn">
+            <Link end="true" to={`/support`} className="support-btn">
                 <img src={suportAbs} alt="support-button" />
             </Link>
         </>

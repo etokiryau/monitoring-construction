@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import CustomLink from '../../utilis/CustomLink';
 
 import instagramLogo from './img/instagramLogo.png';
 import facebookLogo from './img/facebookLogo.png';
@@ -14,8 +14,8 @@ const Footer = () => {
             <div className='footer__content'>
                 <div className='footer__content-links'>
                     <p>© 2023 All rights reserved by "aio"</p>
-                    <Link to='/blog'>Blog</Link>
-                    <Link to='/policy'>Privacy Policy</Link>
+                    <CustomLink to='/blog'>Blog</CustomLink>
+                    <CustomLink to='/policy'>Privacy Policy</CustomLink>
                 </div>
                 <div className='footer__content-media'>
                     <a href=""><img src={instagramLogo} alt="instagram" /></a>
@@ -23,7 +23,6 @@ const Footer = () => {
                     <a href=""><img src={linkedinLogo} alt="linkedin" /></a>
                 </div>
             </div>
-            
         </footer>
     )
 }

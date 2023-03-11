@@ -44,7 +44,7 @@ const TaskCard = ({toggleTaskModal}) => {
                         <li onClick={() => setTab('comments')} style={{borderBottom: tab === 'comments' ? 'solid #3D3D3D' : 'none'}}>Comments</li>
                     </ul>
                 </div>
-                <div className='task-card__content' style={{maxHeight: windowHeight - 170}}>
+                <div className='task-card__content' >
                     {tabContent}
                 </div>
             </div>

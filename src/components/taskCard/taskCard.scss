@@ -44,7 +44,8 @@
 
     &__content {
         overflow-y: auto;
-        padding-right: 10px;       
+        padding-right: 10px;
+        height: calc(100vh - 170px);     
 
         p, div {
             font-size: 14px;

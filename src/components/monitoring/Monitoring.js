@@ -16,85 +16,195 @@ const Monitoring = ({toggleTaskModal}) => {
 
     let windowWidth = windowRef.current.innerWidth;
 
+    // const fetchedData = {
+    //     monthes: ['JAN','FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC', 'JAN', 'FEB'],
+    //     scheduleData: [
+    //         {
+    //             taskName: 'TASK 1',
+    //             duration: '1 JAN - 25 MAR',
+    //             marginLeft: '0px',
+    //             width: '150px',
+    //             elementsIds: ['298932', '298817', '903046']
+    //         },
+    //         {
+    //             taskName: 'TASK 2',
+    //             duration: '6 JAN - 4 APR',
+    //             marginLeft: '10px',
+    //             width: '160px',
+    //             elementsIds: ['298932']
+    //         },
+    //         {
+    //             taskName: 'TASK 3',
+    //             duration: '14/1 - 18/3',
+    //             marginLeft: '30px',
+    //             width: '100px',
+    //             elementsIds: ['298932', '903046']
+    //         },
+    //         {
+    //             taskName: 'TASK 4',
+    //             duration: '1/2 - 9/4',
+    //             marginLeft: '60px',
+    //             width: '120px',
+    //             elementsIds: ['298817']
+    //         },
+    //         {
+    //             taskName: 'TASK 5',
+    //             duration: '14 JAN - 24 MAY',
+    //             marginLeft: '30px',
+    //             width: '230px',
+    //             elementsIds: ['298932', '298817', '903046']
+    //         },
+    //         {
+    //             taskName: 'TASK 6',
+    //             duration: '15 FEB - 12 MAY',
+    //             marginLeft: '90px',
+    //             width: '150px',
+    //             elementsIds: ['298817', '903046']
+    //         },
+    //         {
+    //             taskName: 'TASK 7',
+    //             duration: '20 MAR - 22 JUN',
+    //             marginLeft: '130px',
+    //             width: '190px',
+    //             elementsIds: ['298932', '903046']
+    //         },
+    //         {
+    //             taskName: 'TASK 8',
+    //             duration: '13 APR - 15 JUL',
+    //             marginLeft: '180px',
+    //             width: '190px',
+    //             elementsIds: ['298932', '298817']
+    //         },
+    //         {
+    //             taskName: 'TASK 9',
+    //             duration: '13 APR - 15 JUL',
+    //             marginLeft: '180px',
+    //             width: '190px',
+    //             elementsIds: ['298932', '298817']
+    //         },
+    //         {
+    //             taskName: 'TASK 9',
+    //             duration: '13 APR - 15 JUL',
+    //             marginLeft: '180px',
+    //             width: '190px',
+    //             elementsIds: ['298932', '298817']
+    //         },
+    //         {
+    //             taskName: 'TASK 9',
+    //             duration: '13 APR - 15 JUL',
+    //             marginLeft: '180px',
+    //             width: '190px',
+    //             elementsIds: ['298932', '298817']
+    //         }
+    //     ]
+    // }
+
     const fetchedData = {
         monthes: ['JAN','FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC', 'JAN', 'FEB'],
         scheduleData: [
             {
-                taskName: 'TASK 1',
+                taskName: 'Опалубка',
                 duration: '1 JAN - 25 MAR',
                 marginLeft: '0px',
                 width: '150px',
-                elementsIds: ['298932', '298817', '903046']
+                elementsIds: ['409464'],
+                status: 'completed'
             },
             {
-                taskName: 'TASK 2',
+                taskName: 'Арматура',
+                duration: '1 JAN - 25 MAR',
+                marginLeft: '0px',
+                width: '150px',
+                elementsIds: ['409464'],
+                status: 'completed'
+            },
+            {
+                taskName: 'Бетонирование фундамента',
+                duration: '1 JAN - 25 MAR',
+                marginLeft: '0px',
+                width: '150px',
+                elementsIds: ['409464'],
+                status: 'completed'
+            },
+            {
+                taskName: 'Стены несущие_1',
                 duration: '6 JAN - 4 APR',
                 marginLeft: '10px',
                 width: '160px',
-                elementsIds: ['298932']
+                elementsIds: ['210852', '210764', '210949'],
+                status: 'rejected'
             },
             {
-                taskName: 'TASK 3',
+                taskName: 'Стены несущие_2',
                 duration: '14/1 - 18/3',
                 marginLeft: '30px',
                 width: '100px',
-                elementsIds: ['298932', '903046']
+                elementsIds: ['220087', '210651', '212027'],
+                status: 'progress'
             },
             {
-                taskName: 'TASK 4',
+                taskName: 'Армирование пилонов',
                 duration: '1/2 - 9/4',
                 marginLeft: '60px',
                 width: '120px',
-                elementsIds: ['298817']
+                elementsIds: ['298817'],
+                status: 'accepted'
             },
             {
-                taskName: 'TASK 5',
+                taskName: 'Бетонирование пилонов',
                 duration: '14 JAN - 24 MAY',
                 marginLeft: '30px',
                 width: '230px',
-                elementsIds: ['298932', '298817', '903046']
+                elementsIds: ['298932', '298817', '903046'],
+                status: 'accepted'
             },
             {
-                taskName: 'TASK 6',
+                taskName: 'Перемычки',
                 duration: '15 FEB - 12 MAY',
                 marginLeft: '90px',
                 width: '150px',
-                elementsIds: ['298817', '903046']
+                elementsIds: ['298817', '903046'],
+                status: 'accepted'
             },
             {
-                taskName: 'TASK 7',
+                taskName: 'Армопояс',
                 duration: '20 MAR - 22 JUN',
                 marginLeft: '130px',
                 width: '190px',
-                elementsIds: ['298932', '903046']
+                elementsIds: ['298932', '903046'],
+                status: 'accepted'
             },
             {
-                taskName: 'TASK 8',
+                taskName: 'Перекрытие кровли',
                 duration: '13 APR - 15 JUL',
                 marginLeft: '180px',
                 width: '190px',
-                elementsIds: ['298932', '298817']
+                elementsIds: ['298932', '298817'],
+                status: 'accepted'
             },
             {
-                taskName: 'TASK 9',
+                taskName: 'Парамет газобетон',
                 duration: '13 APR - 15 JUL',
-                marginLeft: '180px',
+                marginLeft: '190px',
                 width: '190px',
-                elementsIds: ['298932', '298817']
+                elementsIds: ['298932', '298817'],
+                status: 'accepted'
             },
             {
-                taskName: 'TASK 9',
+                taskName: 'Стены надстройки',
                 duration: '13 APR - 15 JUL',
-                marginLeft: '180px',
+                marginLeft: '200px',
                 width: '190px',
-                elementsIds: ['298932', '298817']
+                elementsIds: ['298932', '298817'],
+                status: 'accepted'
             },
             {
-                taskName: 'TASK 9',
+                taskName: 'Перекрытие кровли',
                 duration: '13 APR - 15 JUL',
-                marginLeft: '180px',
+                marginLeft: '230px',
                 width: '190px',
-                elementsIds: ['298932', '298817']
+                elementsIds: ['298932', '298817'],
+                status: 'accepted'
             }
         ]
     }
@@ -167,14 +277,45 @@ const Monitoring = ({toggleTaskModal}) => {
     }
 
     const renderScheduleContent = (data) => {
-        const taskList = data.map((item, i) => {
+        const nameList = data.map((item, i) => {
+            let reducedName;
+
+            if (item.taskName.length > 8) {
+                reducedName = `${item.taskName.slice(0, 8)}...`;
+            } else {
+                reducedName = item.taskName;
+            }
+            
             return (
-                <p onClick={(e) => toggleTaskModal(e)} key={i} data-elements={item.elementsIds} className="monitoring__schedule-task-name">{item.taskName}</p>
+                <div className='monitoring__schedule-task-name-list-single' key={i}>
+                    <p 
+                        onClick={(e) => toggleTaskModal(e)} 
+                        data-elements={JSON.stringify({elements: item.elementsIds, status: item.status})} 
+                        className="monitoring__schedule-task-name"
+                    >{reducedName}</p>
+                    {item.taskName.length > 8 ? <div name="taskName-popup" onClick={(e) => toggleTaskModal(e)} data-elements={{elements: item.elementsIds, status: item.status}}>{item.taskName}</div> : null}
+                </div>
             )
         });
 
         const durationList = data.map((item, i) => {
             let adoptedWidth = item.width;
+            let statusColor;
+
+            switch (item.status) {
+                case 'completed':
+                    statusColor = 'rgba(76, 217, 79, 0.7)';
+                    break;
+                case 'rejected':
+                    statusColor = 'rgba(255, 0, 0, 0.7)';
+                    break;
+                case 'progress':
+                    statusColor = 'rgba(0, 0, 255, 0.7)';
+                    break;
+                default: 
+                    statusColor = '#3D3D3D';
+                    break;
+            }
 
             // if (durationAreaWidth === 868) {
             //     adoptedWidth = `${item.width}px`;
@@ -184,7 +325,11 @@ const Monitoring = ({toggleTaskModal}) => {
 
             return (  
                 <div key={i} className="monitoring__schedule-task-duration">
-                    <div onClick={(e) => {toggleTaskModal(e)}} className="monitoring__schedule-task-duration-single" data-elements={item.elementsIds} style={{marginLeft: item.marginLeft, width: adoptedWidth}}>{item.duration}</div>
+                    <div onClick={(e) => {toggleTaskModal(e)}} 
+                        className="monitoring__schedule-task-duration-single" 
+                        data-elements={JSON.stringify({elements: item.elementsIds, status: item.status})} 
+                        style={{marginLeft: item.marginLeft, width: adoptedWidth, backgroundColor: statusColor}}
+                    >{item.duration}</div>
                 </div> 
             )
         });
@@ -192,7 +337,7 @@ const Monitoring = ({toggleTaskModal}) => {
         return (
             <div className="monitoring__schedule-tasks">
                 <div className="monitoring__schedule-task-name-list">
-                    {taskList}
+                    {nameList}
                 </div>
                 <div ref={durationWrapperRef} className="monitoring__schedule-task-duration-wrapper">
                     <div ref={durationRef} style={{width: durationAreaWidth}} className="monitoring__schedule-task-duration-list">
@@ -211,7 +356,7 @@ const Monitoring = ({toggleTaskModal}) => {
 
     return (
         <div className="monitoring">
-            <p className="monitoring__head">Monitoring of construction</p>
+            
             <div className="monitoring__wrapper">
                 <div className="monitoring__schedule-head">
                     <p className="monitoring__schedule">WORK SCHEDULE</p>

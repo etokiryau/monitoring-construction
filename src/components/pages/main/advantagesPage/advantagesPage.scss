@@ -3,8 +3,7 @@
     text-align: center;
 
     h1 {
-        font-size: 38px;
-        font-weight: 300;
+        font-size: 38px;        
     }
 
     &__list {
@@ -20,13 +19,11 @@
     &__benefits {
         h2 {
             font-size: 32px;
-            font-weight: 300;
         }
 
         h3 {
             margin-top: 20px;
             font-size: 18px;
-            font-weight: 300;
             line-height: 25px;
         }
 
@@ -50,8 +47,6 @@
                     width: 150px;
                     height: 150px;
                     
-                    
-
                     svg {
                         circle {
                             width: 100%;

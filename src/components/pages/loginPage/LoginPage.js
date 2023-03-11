@@ -3,6 +3,7 @@ import { useNavigate, useLocation, Link} from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 
 import { AuthContext } from "../../auth/AuthProvider";
+
 import googleLogo from './img/googleLogo.png';
 import facebookLogo from './img/facebookLogo.png';
 import appleLogo from './img/appleLogo.png';

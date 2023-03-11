@@ -160,15 +160,12 @@ const SingleProjectPage = () => {
                 </div>
                 
                 <div className='project__setup-list'>
-                    
                     {project.setup.map((item, i) => {
                         return (
                             <FloorSetup key={i} order={i} data={item} />
                         )
                     })}
-
                 </div>
-                
             </div>
 
             <div className='project__structure'>

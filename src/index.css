@@ -33,9 +33,13 @@ body::-webkit-scrollbar-track {
   background-color: #ffffff;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  monospace;
 }
 
 a, a:visited, a:hover {

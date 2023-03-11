@@ -3,14 +3,12 @@
 
     h3 {
         font-size: 14px;
-        font-weight: 300;
         letter-spacing: 0.3rem;
     }
 
     h1 {
         margin-top: 25px;
         font-size: 32px;
-        font-weight: 300;
     }
 
     &__info {
@@ -75,8 +73,7 @@
         padding: 0 75px;
 
         h2 {
-            font-size: 32px;
-            font-weight: 300;
+            font-size: 32px;            
         }
 
         &-wrapper {
@@ -133,6 +130,7 @@
     
             img {
                 width: 30px;
+                object-fit: contain;
             }
     
             &:hover {
@@ -224,7 +222,6 @@
     h5 {
         margin-top: 5px;
         font-size: 18px;
-        font-weight: 300;
     }
 
     &__drawings {
@@ -302,8 +299,7 @@
                     flex: 1;
                     text-align: left;
                     font-size: 24px;
-                    
-                    
+                     
                     p {
                         font-weight: 400;
                     }
@@ -622,7 +618,6 @@
     
             h2 {
                 font-size: 32px;
-                font-weight: 300;
             }
             
             &-single {

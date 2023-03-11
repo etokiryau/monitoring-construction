@@ -26,8 +26,8 @@ const SolutionViewer = () => {
     }, [modelUrn])
     
     const backToDocumentationPage = () => {
-        let from = location.state?.from?.pathname;
-        from === '/documentation' ? navigate(-1) : navigate('/documentation');
+        let isFromDocumentation = location.pathname.includes('documentation') > 0 ? true : false;
+        isFromDocumentation ? navigate(-1) : navigate('/documentation');
     }
 
     return (

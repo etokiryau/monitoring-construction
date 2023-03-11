@@ -12,11 +12,11 @@ import './taskOverview.scss';
 const TaskOverview = () => {
     const viewerContainer = useRef(null);
     const {visibleElements, modelUrn, isTaskModalOpen} = useContext(Context);
-    const {renderViewer, isolateElements, resetToolbarVisibility} = useAutodeskPlatformService();
+    const {renderViewer, isolateElements} = useAutodeskPlatformService();
     
     useEffect(() => {
-        renderViewer(modelUrn, viewerContainer);
-        setTimeout(() => {isolateElements(visibleElements); resetToolbarVisibility()}, 1500)
+        renderViewer(modelUrn, viewerContainer, false);
+        setTimeout(() => {isolateElements(visibleElements.elements, visibleElements.status)}, 1500)
     }, [isTaskModalOpen, visibleElements]);
 
     return (

@@ -1,8 +1,18 @@
 .comments {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+
     &__list {
         overflow-y: auto;
         margin-bottom: 10px;
         padding-right: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 5px;
+        flex: 1;
    
         &::-webkit-scrollbar {
             width: 15px;
@@ -26,7 +36,6 @@
         }
         
         &-piece {
-            margin-bottom:5px;
             padding: 10px;
             display: flex;
             justify-content: space-between;

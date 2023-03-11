@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 
 import chat from './img/chat.svg';
@@ -6,9 +6,8 @@ import chat from './img/chat.svg';
 import './taskComments.scss';
 
 const TaskComment = () => {
-    const [commentList, setCommentList] = useState([]);
-    const windowRef = useRef(window);
-    let windowHeight = windowRef.current.innerHeight;
+    const [commentList, setCommentList] = useState([
+        {date: new Date().toLocaleDateString(), text: 'Есть замечания к толщине вертикальных швов. Судя по фото, толщина свыше 30мм.'}]);
 
     const updateCommentList = (data) => {
         const currentDate = new Date().toLocaleDateString();
@@ -33,7 +32,7 @@ const TaskComment = () => {
     
     return (
         <div className="comments">
-            <div className="comments__list" style={{maxHeight: windowHeight - 250}}>
+            <div className="comments__list">
                 {commentContent}
             </div>
             <div>
